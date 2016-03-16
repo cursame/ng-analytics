@@ -1,6 +1,7 @@
 'use strict';
 
 define( function ( require ) {
+    var BaseService     = require( 'common/BaseService' );
     var CommonConfig    = require( 'common/CommonConfig' );
     var CommonRun       = require( 'common/CommonRun' );
     var LocaleService   = require( 'common/LocaleService' );
@@ -11,6 +12,8 @@ define( function ( require ) {
         ]);
 
     CommonModule.config([ '$translateProvider', 'tmhDynamicLocaleProvider', CommonConfig ]);
+
+    CommonModule.factory( 'BaseService', [ '$rootScope', '$resource', 'config', 'events', BaseService ] );
 
     CommonModule.run([ '$rootScope', '$location', 'LocaleService', CommonRun ]);
 
