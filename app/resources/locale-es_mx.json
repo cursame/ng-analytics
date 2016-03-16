@@ -1,4 +1,7 @@
 {
+    "alert.login_success"       : "Sesión iniciada correctamente.",
+    "alert.login_error"         : "Verifica tus credenciales de acceso.",
+
     "btn.login"                 : "Iniciar sesión",
 
     "label.email"               : "Correo electrónico",

@@ -7,7 +7,8 @@ define( function () {
                 url     : '/login',
                 views   : {
                     'main-view'     : {
-                        templateUrl : 'partials/sessions/login.html'
+                        templateUrl : 'partials/sessions/login.html',
+                        controller  : 'SessionsStartCtrl'
                     }
                 }
             });

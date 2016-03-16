@@ -1,4 +1,7 @@
 {
+    "alert.login_success"       : "Logged in successfully.",
+    "alert.login_error"         : "Verify your credentials.",
+
     "btn.login"                 : "Log In",
 
     "label.email"               : "Email",
