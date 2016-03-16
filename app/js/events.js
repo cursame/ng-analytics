@@ -4,6 +4,10 @@ define( function () {
     var events  = angular.module( 'events', []);
 
     events.constant( 'events', {
+        LOGIN_ERROR         : 'login.error',
+        LOGIN_SUCCESS       : 'login.success',
+        LOGOUT_ERROR        : 'logout.error',
+        LOGOUT_SUCCESS      : 'logout.success',
         USERS_CREATED       : 'users.created',
         USERS_DELETED       : 'users.deleted',
         USERS_ERROR         : 'users.error',
