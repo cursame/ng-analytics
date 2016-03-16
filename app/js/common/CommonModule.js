@@ -1,6 +1,7 @@
 'use strict';
 
 define( function ( require ) {
+    var AlertDirective  = require( 'common/AlertDirective' );
     var BaseService     = require( 'common/BaseService' );
     var CommonConfig    = require( 'common/CommonConfig' );
     var CommonRun       = require( 'common/CommonRun' );
@@ -13,6 +14,8 @@ define( function ( require ) {
         ]);
 
     CommonModule.config([ '$translateProvider', 'tmhDynamicLocaleProvider', CommonConfig ]);
+
+    CommonModule.directive( 'alert', [ '$rootScope', '$timeout', 'events', AlertDirective ] );
 
     CommonModule.factory( 'BaseService', [ '$rootScope', '$resource', 'config', 'events', BaseService ] );
 

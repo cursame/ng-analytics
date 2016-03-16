@@ -5,6 +5,20 @@
 ****************************/
 a, a:hover, a:focus, a:visited  { outline: 0; text-decoration: none; }
 
+/***************************
+    Notifications Styles
+****************************/
+#system-notification            { width: 50%; position: absolute; top: 0; left: 50%; z-index: 10000; transform: translateX(-50%); }
+.dashboard #system-notification { top: 150px; left: 58.8888%; transform: translateX(-51.3%); }
+.notification-container         { display: none; }
+.notification                   { height: 50px; padding: 0 15px; border-radius: 0 0 5px 5px; border: 1px solid; border-top: none; position: relative; }
+.notification p                 { line-height: 50px; margin-bottom: 0; float: left; }
+.notification span              { font-size: 16px; line-height: 50px; cursor: pointer; float: right; }
+.notification.success           { background-color: #dff0d8; border-color: #d6e9c6; color: #3c763d; }
+.notification.info              { background-color: #d9edf7; border-color: #bce8f1; color: #31708f; }
+.notification.warning           { background-color: #fcf8e3; border-color: #faebcc; color: #8a6d3b; }
+.notification.error             { background-color: #f2dede; border-color: #ebccd1; color: #a94442; }
+
 /****************************
     Login Styles
 ****************************/
