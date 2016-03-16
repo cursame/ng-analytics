@@ -5,6 +5,7 @@ define( function ( require ) {
     var CommonConfig    = require( 'common/CommonConfig' );
     var CommonRun       = require( 'common/CommonRun' );
     var LocaleService   = require( 'common/LocaleService' );
+    var SignService     = require( 'common/SignService' );
 
     var CommonModule    = angular.module( 'CommonModule', [
             'pascalprecht.translate',
@@ -14,6 +15,8 @@ define( function ( require ) {
     CommonModule.config([ '$translateProvider', 'tmhDynamicLocaleProvider', CommonConfig ]);
 
     CommonModule.factory( 'BaseService', [ '$rootScope', '$resource', 'config', 'events', BaseService ] );
+
+    CommonModule.factory( 'SignService', [ 'config', SignService ] );
 
     CommonModule.run([ '$rootScope', '$location', 'LocaleService', CommonRun ]);
 
