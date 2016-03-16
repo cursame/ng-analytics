@@ -1,0 +1,26 @@
+{
+    "name"              : "ng-analytics",
+    "description"       : "AngularJS web client for the cursame analytics service.",
+    "version"           : "1.0.0",
+    "private"           : true,
+    "dependencies"      : {
+        "angular"                               : "1.5.0",
+        "angular-bootstrap"                     : "1.2.4",
+        "angular-cookies"                       : "1.5.0",
+        "angular-dynamic-locale"                : "0.1.30",
+        "angular-i18n"                          : "1.5.0",
+        "angular-resource"                      : "1.5.0",
+        "angular-translate"                     : "2.10.0",
+        "angular-translate-loader-static-files" : "2.10.0",
+        "angular-translate-storage-local"       : "2.10.0",
+        "bootstrap"                             : "3.3.6",
+        "bower-angular-mocks"                   : "1.5.0",
+        "requirejs"                             : "2.1.18",
+        "ui-router"                             : "0.2.18"
+    },
+    "overrides"         : {
+        "angular-i18n"  : {
+            "main"      : "angular-locale_es-mx.js"
+        }
+    }
+}
