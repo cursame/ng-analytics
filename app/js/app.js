@@ -5,6 +5,7 @@ define( function ( require ) {
     require( 'events' );
     require( 'common/CommonModule' );
     require( 'sessions/SessionsModule' );
+    require( 'users/UsersModule' );
 
     var app     = angular.module( 'ngAnalytics', [
             'ngCookies',
@@ -13,7 +14,8 @@ define( function ( require ) {
             'config',
             'events',
             'CommonModule',
-            'SessionsModule'
+            'SessionsModule',
+            'UsersModule'
         ]);
 
     app.config([ '$httpProvider', 'config', function ( $httpProvider, config ) {
