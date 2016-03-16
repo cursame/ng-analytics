@@ -18,6 +18,14 @@ define( function ( require ) {
             'UsersModule'
         ]);
 
+    app.run([ '$rootScope', '$state', 'SessionsService', function ( $rootScope, $state, Session ) {
+        $rootScope.$state   = $state;
+
+        if ( !Session.isLoggedIn() ) {
+            $state.go( 'login' );
+        }
+    }]);
+
     app.config([ '$httpProvider', 'config', function ( $httpProvider, config ) {
         $httpProvider.interceptors.push( [ '$rootScope', '$cookies', 'SignService', function ( $rootScope, $cookies, SignService ) {
             return {
