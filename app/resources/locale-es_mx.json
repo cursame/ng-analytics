@@ -1,0 +1,12 @@
+{
+    "btn.login"                 : "Iniciar sesión",
+
+    "label.email"               : "Correo electrónico",
+    "label.password"            : "Contraseña",
+    "label.remember"            : "Recordarme",
+
+    "placeholder.email"         : "Correo electrónico",
+    "placeholder.password"      : "Contraseña",
+
+    "title.login"               : "Iniciar Sesión"
+}

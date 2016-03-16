@@ -1,0 +1,12 @@
+{
+    "btn.login"                 : "Log In",
+
+    "label.email"               : "Email",
+    "label.password"            : "Password",
+    "label.remember"            : "Remember me",
+
+    "placeholder.email"         : "Email",
+    "placeholder.password"      : "Password",
+
+    "title.login"               : "Log in"
+}
