@@ -1,6 +1,7 @@
 {
     "alert.login_success"       : "Logged in successfully.",
     "alert.login_error"         : "Verify your credentials.",
+    "alert.logout_success"      : "Logged out successfully.",
 
     "btn.login"                 : "Log In",
 

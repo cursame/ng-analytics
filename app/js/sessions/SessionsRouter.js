@@ -11,6 +11,16 @@ define( function () {
                         controller  : 'SessionsStartCtrl'
                     }
                 }
+            })
+            .state( 'logout', {
+                parent  : 'dashboard',
+                url     : 'logout',
+                views   : {
+                    'main-container'    : {
+                        template        : '',
+                        controller      : 'SessionsEndCtrl'
+                    }
+                }
             });
     };
 });

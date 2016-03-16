@@ -1,6 +1,7 @@
 {
     "alert.login_success"       : "Sesión iniciada correctamente.",
     "alert.login_error"         : "Verifica tus credenciales de acceso.",
+    "alert.logout_success"      : "Sesión terminada.",
 
     "btn.login"                 : "Iniciar sesión",
 
