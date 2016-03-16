@@ -8,6 +8,8 @@
     "label.password"            : "Password",
     "label.remember"            : "Remember me",
 
+    "menu.logout"               : "Logout",
+
     "placeholder.email"         : "Email",
     "placeholder.password"      : "Password",
 

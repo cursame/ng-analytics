@@ -4,6 +4,7 @@ define( function ( require ) {
     require( 'config' );
     require( 'events' );
     require( 'common/CommonModule' );
+    require( 'dashboard/DashboardModule' );
     require( 'sessions/SessionsModule' );
     require( 'users/UsersModule' );
 
@@ -14,15 +15,16 @@ define( function ( require ) {
             'config',
             'events',
             'CommonModule',
+            'DashboardModule',
             'SessionsModule',
             'UsersModule'
         ]);
 
-    app.run([ '$rootScope', '$state', 'SessionsService', function ( $rootScope, $state, Session ) {
+    app.run([ '$rootScope', '$state', '$location', function ( $rootScope, $state, $location ) {
         $rootScope.$state   = $state;
 
-        if ( !Session.isLoggedIn() ) {
-            $state.go( 'login' );
+        if ( $location.url() == '' ) {
+            $state.go( 'dashboard' );
         }
     }]);
 

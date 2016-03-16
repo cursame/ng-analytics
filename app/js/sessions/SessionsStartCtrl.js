@@ -11,6 +11,8 @@ define( function () {
                 msg     : 'Logged in successfully!',
                 type    : 'success'
             });
+
+            $scope.$state.go( 'dashboard' );
         });
         $scope.$on( events.LOGIN_ERROR, function () {
             $scope.$emit( events.SYSTEM_MESSAGE, {
