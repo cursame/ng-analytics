@@ -8,7 +8,7 @@ define( function () {
 
         $scope.$on( events.LOGIN_SUCCESS, function () {
             $scope.$emit( events.SYSTEM_MESSAGE, {
-                msg     : 'Logged in successfully!',
+                msg     : 'alert.login_success',
                 type    : 'success'
             });
 
