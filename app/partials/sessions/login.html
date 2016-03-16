@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-lg-offset-4 col-md-offset-4 col-sm-offset-3">
+            <div id="login-form">
+                <div class="form-header">
+                    <a ui-sref="login"><img src="img/logo.png"></a>
+                </div>
+                <div>
+                    <form ng-submit="login()">
+                        <h4>Log in</h4>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                                <input type="email" name="email" class="form-control" id="user-email" placeholder="Email" ng-model="user.email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="sr-only">Password</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                                <input type="password" name="password" class="form-control" id="user-password" placeholder="Password" ng-model="user.pass">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="persistent"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                                <button type="submit" class="btn btn-primary pull-right">Log In</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-footer"></div>
+            </div>
+        </div>
+    </div>
+</div>

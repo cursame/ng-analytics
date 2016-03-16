@@ -1,7 +1,12 @@
 'use strict';
 
 define( function ( require ) {
-    var app     = angular.module( 'ngAnalytics', []);
+    require( 'sessions/SessionsModule' );
+
+    var app     = angular.module( 'ngAnalytics', [
+            'ui.router',
+            'SessionsModule'
+        ]);
 
     return app;
 });
