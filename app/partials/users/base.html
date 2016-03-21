@@ -5,4 +5,8 @@
         <li ng-class="{active:$state.includes('users.admins')}"><a ui-sref="users.admins">{{ 'menu.administrators' | translate }}</a></li>
     </ul>
 </div>
-<div id="content" ui-view="users-content"></div>
+<div class="row">
+    <div class="col-lg-10 col-md-10">
+        <div id="content" ui-view="users-content"></div>
+    </div>
+</div>
