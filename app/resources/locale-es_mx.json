@@ -17,8 +17,10 @@
 
     "menu.administrators"       : "Admins",
     "menu.analytics"            : "Analytics",
+    "menu.details"              : "Ver detalles",
     "menu.logout"               : "Cerrar Sesión",
     "menu.professors"           : "Profesores",
+    "menu.remove"               : "Eliminar",
     "menu.students"             : "Alumnos",
     "menu.users"                : "Usuarios",
 
