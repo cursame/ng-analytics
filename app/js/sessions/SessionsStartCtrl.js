@@ -12,7 +12,7 @@ define( function () {
                 type    : 'success'
             });
 
-            $scope.$state.go( 'dashboard' );
+            $scope.$state.go( 'users.teachers' );
         });
         $scope.$on( events.LOGIN_ERROR, function () {
             $scope.$emit( events.SYSTEM_MESSAGE, {
