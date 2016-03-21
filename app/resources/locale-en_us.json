@@ -2,6 +2,7 @@
     "alert.login_success"       : "Logged in successfully.",
     "alert.login_error"         : "Verify your credentials.",
     "alert.logout_success"      : "Logged out successfully.",
+    "alert.user_removed"        : "User removed successfully!",
 
     "btn.login"                 : "Log In",
 

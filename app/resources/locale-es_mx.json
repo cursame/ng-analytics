@@ -2,6 +2,7 @@
     "alert.login_success"       : "Sesión iniciada correctamente.",
     "alert.login_error"         : "Verifica tus credenciales de acceso.",
     "alert.logout_success"      : "Sesión terminada.",
+    "alert.user_removed"        : "¡Usuario eliminado éxitosamente!",
 
     "btn.login"                 : "Iniciar sesión",
 

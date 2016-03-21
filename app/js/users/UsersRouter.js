@@ -25,6 +25,15 @@ define( function () {
                     }
                 }
             })
+            .state( 'users.remove', {
+                url         : '/remove/:id',
+                views       : {
+                    'users-content' : {
+                        templateUrl : 'partials/users/remove.html',
+                        controller  : 'UsersRemoveCtrl'
+                    }
+                }
+            })
             .state( 'users.students', {
                 url         : '/students',
                 params      : {
