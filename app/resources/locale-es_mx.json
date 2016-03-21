@@ -5,6 +5,12 @@
 
     "btn.login"                 : "Iniciar sesión",
 
+    "header.action"             : "Acción",
+    "header.admin"              : "Admin",
+    "header.email"              : "Email",
+    "header.professor"          : "Profesor",
+    "header.student"            : "Alumno",
+
     "label.email"               : "Correo electrónico",
     "label.password"            : "Contraseña",
     "label.remember"            : "Recordarme",

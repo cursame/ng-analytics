@@ -1,11 +1,11 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th ng-show="$state.is('users.teachers')">Profesor</th>
-            <th ng-show="$state.is('users.students')">Alumno</th>
-            <th ng-show="$state.is('users.admins')">Admin</th>
-            <th width="30%" class="text-center">Email</th>
-            <th width="30%" class="text-center">Acción</th>
+            <th ng-show="$state.is('users.teachers')">{{ 'header.professor' | translate }}</th>
+            <th ng-show="$state.is('users.students')">{{ 'header.student' | translate }}</th>
+            <th ng-show="$state.is('users.admins')">{{ 'header.admin' | translate }}</th>
+            <th width="30%" class="text-center">{{ 'header.email' | translate }}</th>
+            <th width="30%" class="text-center">{{ 'header.action' | translate }}</th>
         </tr>
     </thead>
     <tbody>

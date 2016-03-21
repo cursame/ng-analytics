@@ -5,6 +5,12 @@
 
     "btn.login"                 : "Log In",
 
+    "header.action"             : "Action",
+    "header.admin"              : "Admin",
+    "header.email"              : "Email",
+    "header.professor"          : "Professor",
+    "header.student"            : "Student",
+
     "label.email"               : "Email",
     "label.password"            : "Password",
     "label.remember"            : "Remember me",
