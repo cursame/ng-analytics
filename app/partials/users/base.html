@@ -1,0 +1,8 @@
+<div id="subheader">
+    <ul>
+        <li ng-class="{active:$state.includes('users.teachers')}"><a ui-sref="users.teachers">{{ 'menu.professors' | translate }}</a></li>
+        <li ng-class="{active:$state.includes('users.students')}"><a ui-sref="users.students">{{ 'menu.students' | translate }}</a></li>
+        <li ng-class="{active:$state.includes('users.admins')}"><a ui-sref="users.admins">{{ 'menu.administrators' | translate }}</a></li>
+    </ul>
+</div>
+<div id="content" ui-view="users-content"></div>

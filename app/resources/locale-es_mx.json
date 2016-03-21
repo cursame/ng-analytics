@@ -9,8 +9,11 @@
     "label.password"            : "Contraseña",
     "label.remember"            : "Recordarme",
 
+    "menu.administrators"       : "Admins",
     "menu.analytics"            : "Analytics",
     "menu.logout"               : "Cerrar Sesión",
+    "menu.professors"           : "Profesores",
+    "menu.students"             : "Alumnos",
     "menu.users"                : "Usuarios",
 
     "placeholder.email"         : "Correo electrónico",

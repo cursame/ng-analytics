@@ -7,6 +7,7 @@ html, body                      { height: 100%; font-family: "Open Sans"; font-s
 body                            { padding-top: 50px; }
 a, a:hover, a:focus, a:visited  { outline: 0; text-decoration: none; }
 .full-height                    { height: 100%; }
+#main-container .inner          { margin: 0 -15px; }
 
 /***************************
     Notifications Styles
@@ -61,3 +62,13 @@ a, a:hover, a:focus, a:visited  { outline: 0; text-decoration: none; }
 #main-menu > ul > li.active,
 #main-menu > ul > li:hover      { padding-right: 15px; border-right: 2px solid #ccc; }
 #main-menu > ul > li > a        { display: block; font-size: 12px; line-height: 25px; color: #0071a3; }
+
+/*****************************
+    Content Styles
+*****************************/
+#subheader                      { height: 45px; background-color: #056087; }
+#subheader > ul                 { padding-left: 70px; list-style: none; overflow: hidden; }
+#subheader > ul > li            { padding: 0 15px; float: left; line-height: 45px; }
+#subheader > ul > li > a        { color: #fff; }
+#subheader > ul > li:hover > a,
+#subheader > ul > li.active > a { color: #bbb; }
