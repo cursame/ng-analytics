@@ -5,6 +5,7 @@
     "alert.user_removed"        : "User removed successfully!",
 
     "btn.login"                 : "Log In",
+    "btn.search"                : "Search",
 
     "header.action"             : "Action",
     "header.admin"              : "Admin",
@@ -27,6 +28,7 @@
 
     "placeholder.email"         : "Email",
     "placeholder.password"      : "Password",
+    "placeholder.search_users"  : "Search users...",
 
     "title.login"               : "Log in"
 }

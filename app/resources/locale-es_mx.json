@@ -5,6 +5,7 @@
     "alert.user_removed"        : "¡Usuario eliminado éxitosamente!",
 
     "btn.login"                 : "Iniciar sesión",
+    "btn.search"                : "Buscar",
 
     "header.action"             : "Acción",
     "header.admin"              : "Admin",
@@ -27,6 +28,7 @@
 
     "placeholder.email"         : "Correo electrónico",
     "placeholder.password"      : "Contraseña",
+    "placeholder.search_users"  : "Buscar usuarios...",
 
     "title.login"               : "Iniciar Sesión"
 }

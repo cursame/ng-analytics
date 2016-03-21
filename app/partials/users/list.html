@@ -1,3 +1,9 @@
+<form class="search-form form-inline pull-right" ng-submit="query()">
+    <div class="form-group">
+        <input type="text" class="form-control" ng-model="name" placeholder="{{ 'placeholder.search_users' | translate }}">
+    </div>
+    <button type="submit" class="btn btn-default">{{ 'btn.search' | translate }}</button>
+</form>
 <table class="table table-hover">
     <thead>
         <tr>
