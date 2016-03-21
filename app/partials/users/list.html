@@ -1,0 +1,18 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th ng-show="$state.is('users.teachers')">Profesor</th>
+            <th ng-show="$state.is('users.students')">Alumno</th>
+            <th ng-show="$state.is('users.admins')">Admin</th>
+            <th width="30%" class="text-center">Email</th>
+            <th width="30%" class="text-center">Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user in users">
+            <td><a ui-sref="users.user({ id : user._id })"><img class="avatar" ng-src="{{ user.avatar }}">{{ user.name }}</a></td>
+            <td class="text-center">{{ user.email }}</td>
+            <td class="text-center"><i class="glyphicon glyphicon-cog"></i></td>
+        </tr>
+    </tbody>
+</table>
