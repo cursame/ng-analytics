@@ -11,6 +11,8 @@ define( function ( require ) {
     var app     = angular.module( 'ngAnalytics', [
             'ngCookies',
             'ngResource',
+            'ui.bootstrap.pagination',
+            'ui.bootstrap.tpls',
             'ui.router',
             'config',
             'events',
