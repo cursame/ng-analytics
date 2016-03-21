@@ -13,6 +13,30 @@ define( function () {
                     }
                 }
             })
+            .state( 'users.admins', {
+                url         : '/admins',
+                params      : {
+                    type    : 3
+                },
+                views       : {
+                    'users-content' : {
+                        templateUrl : 'partials/users/list.html',
+                        controller  : 'UsersListCtrl'
+                    }
+                }
+            })
+            .state( 'users.students', {
+                url         : '/students',
+                params      : {
+                    type    : 2
+                },
+                views       : {
+                    'users-content' : {
+                        templateUrl : 'partials/users/list.html',
+                        controller  : 'UsersListCtrl'
+                    }
+                }
+            })
             .state( 'users.teachers', {
                 url         : '/teachers',
                 params      : {
