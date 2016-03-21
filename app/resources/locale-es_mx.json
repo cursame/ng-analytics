@@ -9,7 +9,9 @@
     "label.password"            : "Contraseña",
     "label.remember"            : "Recordarme",
 
+    "menu.analytics"            : "Analytics",
     "menu.logout"               : "Cerrar Sesión",
+    "menu.users"                : "Usuarios",
 
     "placeholder.email"         : "Correo electrónico",
     "placeholder.password"      : "Contraseña",

@@ -9,7 +9,9 @@
     "label.password"            : "Password",
     "label.remember"            : "Remember me",
 
+    "menu.analytics"            : "Analytics",
     "menu.logout"               : "Logout",
+    "menu.users"                : "Users",
 
     "placeholder.email"         : "Email",
     "placeholder.password"      : "Password",

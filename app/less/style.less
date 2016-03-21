@@ -4,6 +4,7 @@
     General Styles
 ****************************/
 html, body                      { height: 100%; font-family: "Open Sans"; font-size: 13px; line-height: 1.8em; }
+body                            { padding-top: 50px; }
 a, a:hover, a:focus, a:visited  { outline: 0; text-decoration: none; }
 .full-height                    { height: 100%; }
 
@@ -54,10 +55,9 @@ a, a:hover, a:focus, a:visited  { outline: 0; text-decoration: none; }
 /*****************************
     Main Menu Styles
 *****************************/
-#main-menu                      { height: 100%; background-color: #f8f8f8; border-right: 1px solid rgba(0,0,0,0.1); }
+#main-menu                      { height: 100%; padding-top: 70px; background-color: #f8f8f8; border-right: 1px solid rgba(0,0,0,0.1); }
 #main-menu > ul                 { margin: 0 -15px; padding-left: 0; list-style: none; }
-#main-menu > ul > li            { padding: 0 15px; height: 35px; cursor: pointer; }
-#main-menu > ul > li:hover      { background-color: rgba(255,255,255,0.1); }
-#main-menu > ul > li > a        { display: block; font-size: 12px; line-height: 35px; color: #fff; }
-#main-menu > ul > li > a:hover  { text-decoration: none; }
-#main-menu > ul > li > a > span { margin-right: 10px; }
+#main-menu > ul > li            { padding: 0 15px; padding-right: 17px; height: 25px; line-height: 25px; cursor: pointer; text-align: right; }
+#main-menu > ul > li.active,
+#main-menu > ul > li:hover      { padding-right: 15px; border-right: 2px solid #ccc; }
+#main-menu > ul > li > a        { display: block; font-size: 12px; line-height: 25px; color: #0071a3; }
