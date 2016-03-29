@@ -6,3 +6,16 @@
         <h1>{{ user.name }} <span>(<span ng-if="user.type == 1">profesor</span><span ng-if="user.type == 2">student</span><span ng-if="user.type == 3">admin</span>)</span></h1>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <div style="display: inline-block;">
+                    <uib-datepicker class="well well-sm" datepicker-options="dateOpts" ng-model="date"></uib-datepicker>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
