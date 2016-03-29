@@ -57,6 +57,15 @@ define( function () {
                         controller  : 'UsersListCtrl'
                     }
                 }
+            })
+            .state( 'users.details', {
+                url         : '/:id',
+                views       : {
+                    'users-content' : {
+                        templateUrl : 'partials/users/details.html',
+                        controller  : 'UsersDetailsCtrl'
+                    }
+                }
             });
     };
 });

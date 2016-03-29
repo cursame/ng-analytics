@@ -1,14 +1,17 @@
 'use strict';
 
 define( function ( require ) {
-    var UsersListCtrl   = require( 'users/UsersListCtrl' );
-    var UsersRemoveCtrl = require( 'users/UsersRemoveCtrl' );
-    var UsersRouter     = require( 'users/UsersRouter' );
-    var UsersService    = require( 'users/UsersService' );
+    var UsersDetailsCtrl    = require( 'users/UsersDetailsCtrl' );
+    var UsersListCtrl       = require( 'users/UsersListCtrl' );
+    var UsersRemoveCtrl     = require( 'users/UsersRemoveCtrl' );
+    var UsersRouter         = require( 'users/UsersRouter' );
+    var UsersService        = require( 'users/UsersService' );
 
-    var UsersModule     = angular.module( 'UsersModule', []);
+    var UsersModule         = angular.module( 'UsersModule', []);
 
     UsersModule.config([ '$stateProvider', UsersRouter ]);
+
+    UsersModule.controller( 'UsersDetailsCtrl', [ '$scope', '$stateParams', 'UsersService', UsersDetailsCtrl ] );
 
     UsersModule.controller( 'UsersListCtrl', [ '$scope', '$stateParams', 'UsersService', UsersListCtrl ] );
 
