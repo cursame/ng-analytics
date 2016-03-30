@@ -5,6 +5,7 @@ define( function ( require ) {
     require( 'events' );
     require( 'common/CommonModule' );
     require( 'dashboard/DashboardModule' );
+    require( 'logins/LoginsModule' );
     require( 'sessions/SessionsModule' );
     require( 'users/UsersModule' );
 
@@ -19,6 +20,7 @@ define( function ( require ) {
             'events',
             'CommonModule',
             'DashboardModule',
+            'LoginsModule',
             'SessionsModule',
             'UsersModule'
         ]);
