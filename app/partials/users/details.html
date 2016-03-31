@@ -1,5 +1,8 @@
 <div class="user-header row">
     <div class="col-md-2">
+        <a ui-sref="users.teachers" ng-if="user.type == 1"><i class="glyphicon glyphicon-arrow-left"></i></a>
+        <a ui-sref="users.students" ng-if="user.type == 2"><i class="glyphicon glyphicon-arrow-left"></i></a>
+        <a ui-sref="users.admins" ng-if="user.type == 3"><i class="glyphicon glyphicon-arrow-left"></i></a>
         <img ng-src="{{ user.avatar }}">
     </div>
     <div class="col-md-10">
