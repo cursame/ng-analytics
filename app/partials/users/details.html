@@ -6,7 +6,7 @@
         <img ng-src="{{ user.avatar }}">
     </div>
     <div class="col-md-10">
-        <h1>{{ user.name }} <span>(<span ng-if="user.type == 1">profesor</span><span ng-if="user.type == 2">student</span><span ng-if="user.type == 3">admin</span>)</span></h1>
+        <h1>{{ user.name }} <span>(<span ng-if="user.type == 1">{{ 'label.professor' | translate }}</span><span ng-if="user.type == 2">{{ 'label.student' | translate }}</span><span ng-if="user.type == 3">{{ 'label.admin' | translate }}</span>)</span></h1>
     </div>
 </div>
 <div class="row">

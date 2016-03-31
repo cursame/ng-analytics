@@ -13,9 +13,12 @@
     "header.professor"          : "Profesor",
     "header.student"            : "Alumno",
 
+    "label.admin"               : "admin",
     "label.email"               : "Correo electrónico",
     "label.password"            : "Contraseña",
+    "label.professor"           : "profesor",
     "label.remember"            : "Recordarme",
+    "label.student"             : "estudiante",
 
     "menu.administrators"       : "Admins",
     "menu.analytics"            : "Analytics",
