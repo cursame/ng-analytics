@@ -10,6 +10,7 @@ define( function ( require ) {
     require( 'users/UsersModule' );
 
     var app     = angular.module( 'ngAnalytics', [
+            'chart.js',
             'ngCookies',
             'ngResource',
             'ui.bootstrap.datepicker',
