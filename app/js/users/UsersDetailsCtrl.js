@@ -1,7 +1,7 @@
 'use strict';
 
 define( function () {
-    return function ( $scope, $stateParams, $translate, Users, Logins ) {
+    return function ( $scope, $stateParams, $translate, Users, Logins, Courses ) {
         var start       = moment().startOf( 'week' ).toDate(),
             end         = moment().endOf( 'week' ).toDate(),
             months      = [
@@ -73,6 +73,25 @@ define( function () {
             }
 
             graph();
+        });
+
+        $scope.$on( Users.getEvent( 'RETRIEVED' ), function () {
+            switch ( $scope.user.type ) {
+                case 1 :
+                    $scope.courses  = Courses.query({
+                        $and    : [
+                            {
+                                start       : {
+                                    $lte    : moment().endOf( 'month' ).toDate()
+                                }
+                            },
+                            {
+                                teacher     : $scope.user._id
+                            }
+                        ]
+                    });
+                    break;
+            }
         });
     };
 });

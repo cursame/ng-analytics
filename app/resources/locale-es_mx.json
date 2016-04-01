@@ -14,7 +14,9 @@
     "header.student"            : "Alumno",
 
     "label.admin"               : "admin",
+    "label.courses"             : "Cursos",
     "label.email"               : "Correo electrónico",
+    "label.last_month_activity" : "Último mes en Plataforma",
     "label.password"            : "Contraseña",
     "label.professor"           : "profesor",
     "label.remember"            : "Recordarme",

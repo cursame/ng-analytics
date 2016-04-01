@@ -9,7 +9,7 @@
         <h1>{{ user.name }} <span>(<span ng-if="user.type == 1">{{ 'label.professor' | translate }}</span><span ng-if="user.type == 2">{{ 'label.student' | translate }}</span><span ng-if="user.type == 3">{{ 'label.admin' | translate }}</span>)</span></h1>
     </div>
 </div>
-<div class="row">
+<div class="data-container row">
     <div class="col-md-8">
         <div class="row">
             <div class="col-md-6">
@@ -18,6 +18,19 @@
             <div class="col-md-6">
                 <div style="display: inline-block;">
                     <uib-datepicker class="well well-sm" datepicker-options="dateOpts" ng-model="date"></uib-datepicker>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" ng-show="user.type == 1">
+                <h2>{{ 'label.last_month_activity' | translate }}</h2>
+                <div class="widgets-container row">
+                    <div class="col-md-4">
+                        <div class="widget">
+                            <p>{{ 'label.courses' | translate }}</p>
+                            <h4>{{ courses.length | number }}</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

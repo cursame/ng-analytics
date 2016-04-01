@@ -14,7 +14,9 @@
     "header.student"            : "Student",
 
     "label.admin"               : "admin",
+    "label.courses"             : "Courses",
     "label.email"               : "Email",
+    "label.last_month_activity" : "Activity last month",
     "label.password"            : "Password",
     "label.professor"           : "professor",
     "label.remember"            : "Remember me",

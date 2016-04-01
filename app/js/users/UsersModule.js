@@ -11,7 +11,7 @@ define( function ( require ) {
 
     UsersModule.config([ '$stateProvider', UsersRouter ]);
 
-    UsersModule.controller( 'UsersDetailsCtrl', [ '$scope', '$stateParams', '$translate', 'UsersService', 'LoginsService', UsersDetailsCtrl ] );
+    UsersModule.controller( 'UsersDetailsCtrl', [ '$scope', '$stateParams', '$translate', 'UsersService', 'LoginsService', 'CoursesService', UsersDetailsCtrl ] );
 
     UsersModule.controller( 'UsersListCtrl', [ '$scope', '$stateParams', 'UsersService', UsersListCtrl ] );
 
