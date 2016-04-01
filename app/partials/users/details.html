@@ -29,6 +29,9 @@
                         <div class="widget">
                             <p>{{ 'label.courses' | translate }}</p>
                             <h4>{{ courses.length | number }}</h4>
+                            <span class="indicator indicator-up" ng-if="courses.length > coursesLast.length"></span>
+                            <span class="indicator indicator-down" ng-if="courses.length < coursesLast.length"></span>
+                            <span class="indicator indicator-same" ng-if="courses.length == coursesLast.length"></span>
                         </div>
                     </div>
                 </div>

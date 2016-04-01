@@ -78,11 +78,23 @@ define( function () {
         $scope.$on( Users.getEvent( 'RETRIEVED' ), function () {
             switch ( $scope.user.type ) {
                 case 1 :
-                    $scope.courses  = Courses.query({
+                    $scope.courses      = Courses.query({
                         $and    : [
                             {
                                 start       : {
                                     $lte    : moment().endOf( 'month' ).toDate()
+                                }
+                            },
+                            {
+                                teacher     : $scope.user._id
+                            }
+                        ]
+                    });
+                    $scope.coursesLast  = Courses.query({
+                        $and    : [
+                            {
+                                start       : {
+                                    $lte    : moment().subtract( 1, 'months' ).endOf( 'month' ).toDate()
                                 }
                             },
                             {
