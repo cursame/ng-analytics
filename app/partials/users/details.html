@@ -34,6 +34,15 @@
                             <span class="indicator indicator-same" ng-if="courses.length == coursesLast.length"></span>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="widget">
+                            <p>{{ 'label.assignments' | translate }}</p>
+                            <h4>{{ assignments | number }}</h4>
+                            <span class="indicator indicator-up" ng-if="assignments > assignmentsLast"></span>
+                            <span class="indicator indicator-down" ng-if="assignments < assignmentsLast"></span>
+                            <span class="indicator indicator-same" ng-if="assignments == assignmentsLast"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

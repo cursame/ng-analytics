@@ -14,6 +14,7 @@
     "header.student"            : "Student",
 
     "label.admin"               : "admin",
+    "label.assignments"         : "Assignments",
     "label.courses"             : "Courses",
     "label.email"               : "Email",
     "label.last_month_activity" : "Activity last month",

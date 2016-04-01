@@ -1,7 +1,7 @@
 'use strict';
 
 define( function () {
-    return function ( $scope, $stateParams, $translate, Users, Logins, Courses ) {
+    return function ( $scope, $stateParams, $translate, Users, Logins, Courses, Assignments ) {
         var start       = moment().startOf( 'week' ).toDate(),
             end         = moment().endOf( 'week' ).toDate(),
             months      = [
@@ -101,6 +101,44 @@ define( function () {
                                 teacher     : $scope.user._id
                             }
                         ]
+                    });
+                    Assignments.query({
+                        $and    : [
+                            {
+                                date        : {
+                                    $lte    : moment().endOf( 'month' ).toDate()
+                                }
+                            },
+                            {
+                                date        : {
+                                    $gte    : moment().startOf( 'month' ).toDate()
+                                }
+                            },
+                            {
+                                teacher     : $scope.user._id
+                            }
+                        ]
+                    }).$promise.then( function ( data ) {
+                        $scope.assignments      = Assignments.getTotal();
+                    });
+                    Assignments.query({
+                        $and    : [
+                            {
+                                date        : {
+                                    $lte    : moment().subtract( 1, 'months' ).endOf( 'month' ).toDate()
+                                }
+                            },
+                            {
+                                date        : {
+                                    $gte    : moment().subtract( 1, 'months' ).startOf( 'month' ).toDate()
+                                }
+                            },
+                            {
+                                teacher     : $scope.user._id
+                            }
+                        ]
+                    }).$promise.then( function ( data ) {
+                        $scope.assignmentsLast  = Assignments.getTotal();
                     });
                     break;
             }
