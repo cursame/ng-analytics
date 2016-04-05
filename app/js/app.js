@@ -3,6 +3,7 @@
 define( function ( require ) {
     require( 'config' );
     require( 'events' );
+    require( 'activities/ActivitiesModule' );
     require( 'assignments/AssignmentsModule' );
     require( 'comments/CommentsModule' );
     require( 'common/CommonModule' );
@@ -25,6 +26,7 @@ define( function ( require ) {
             'ui.router',
             'config',
             'events',
+            'ActivitiesModule',
             'AssignmentsModule',
             'CommentsModule',
             'CommonModule',
