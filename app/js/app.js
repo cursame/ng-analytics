@@ -4,6 +4,7 @@ define( function ( require ) {
     require( 'config' );
     require( 'events' );
     require( 'assignments/AssignmentsModule' );
+    require( 'comments/CommentsModule' );
     require( 'common/CommonModule' );
     require( 'courses/CoursesModule' );
     require( 'dashboard/DashboardModule' );
@@ -23,6 +24,7 @@ define( function ( require ) {
             'config',
             'events',
             'AssignmentsModule',
+            'CommentsModule',
             'CommonModule',
             'CoursesModule',
             'DashboardModule',
