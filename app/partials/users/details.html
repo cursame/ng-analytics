@@ -109,6 +109,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>{{ 'label.questionaries' | translate }}: <span class="green">{{ questionariesSolved }} {{ 'label.of' | translate }} {{ questionaries }}</span></p>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ questionariesSolved / questionaries * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ questionariesSolved / questionaries * 100 | number:2; }}%;">
+                                {{ questionariesSolved / questionaries * 100 | number:2 }}%
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

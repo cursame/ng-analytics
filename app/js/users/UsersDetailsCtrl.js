@@ -184,6 +184,47 @@ define( function () {
                 }).$promise.then( function ( data ) {
                     $scope.discussionsSolved    = Discussions.getTotal();
                 });
+                Questionaries.query({
+                    $and        : [
+                        {
+                            date        : {
+                                $lte    : moment().endOf( 'month' ).toDate()
+                            }
+                        },
+                        {
+                            date        : {
+                                $gte    : moment().startOf( 'month' ).toDate()
+                            }
+                        },
+                        {
+                            $or         : courses
+                        }
+                    ],
+                    $or         : courses,
+                    per_page    : 1
+                }).$promise.then( function ( data ) {
+                    $scope.questionaries        = Questionaries.getTotal();
+                });
+                Questionaries.query({
+                    $and        : [
+                        {
+                            date        : {
+                                $lte    : moment().endOf( 'month' ).toDate()
+                            }
+                        },
+                        {
+                            date        : {
+                                $gte    : moment().startOf( 'month' ).toDate()
+                            }
+                        },
+                        {
+                            $or         : filters
+                        }
+                    ],
+                    per_page    : 1
+                }).$promise.then( function ( data ) {
+                    $scope.questionariesSolved  = Questionaries.getTotal();
+                });
             }
         });
         $scope.$on( Users.getEvent('RETRIEVED' ), function () {
