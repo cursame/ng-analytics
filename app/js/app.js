@@ -7,6 +7,7 @@ define( function ( require ) {
     require( 'common/CommonModule' );
     require( 'courses/CoursesModule' );
     require( 'dashboard/DashboardModule' );
+    require( 'discussions/DiscussionsModule' );
     require( 'logins/LoginsModule' );
     require( 'sessions/SessionsModule' );
     require( 'users/UsersModule' );
@@ -25,6 +26,7 @@ define( function ( require ) {
             'CommonModule',
             'CoursesModule',
             'DashboardModule',
+            'DiscussionsModule',
             'LoginsModule',
             'SessionsModule',
             'UsersModule'
