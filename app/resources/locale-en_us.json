@@ -16,6 +16,7 @@
     "label.admin"               : "admin",
     "label.assignments"         : "Assignments",
     "label.courses"             : "Courses",
+    "label.discussions"         : "Discussions",
     "label.email"               : "Email",
     "label.last_month_activity" : "Activity last month",
     "label.password"            : "Password",
