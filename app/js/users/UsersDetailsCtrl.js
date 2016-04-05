@@ -1,7 +1,7 @@
 'use strict';
 
 define( function () {
-    return function ( $scope, $stateParams, $translate, Users, Logins, Courses, Assignments, Discussions, Comments ) {
+    return function ( $scope, $stateParams, $translate, Users, Logins, Courses, Assignments, Discussions, Comments, Questionaries ) {
         var start       = moment().startOf( 'week' ).toDate(),
             end         = moment().endOf( 'week' ).toDate(),
             months      = [
@@ -215,6 +215,44 @@ define( function () {
                         ]
                     }).$promise.then( function ( data ) {
                         $scope.commentsLast = Comments.getTotal();
+                    });
+                    Questionaries.query({
+                        $and    : [
+                            {
+                                date        : {
+                                    $lte    : moment().endOf( 'month' ).toDate()
+                                }
+                            },
+                            {
+                                date        : {
+                                    $gte    : moment().startOf( 'month' ).toDate()
+                                }
+                            },
+                            {
+                                teacher     : $scope.user._id
+                            }
+                        ]
+                    }).$promise.then( function ( data ) {
+                        $scope.questionaries        = Questionaries.getTotal();
+                    });
+                    Questionaries.query({
+                        $and    : [
+                            {
+                                date        : {
+                                    $lte    : moment().subtract( 1, 'months' ).endOf( 'month' ).toDate()
+                                }
+                            },
+                            {
+                                date        : {
+                                    $gte    : moment().subtract( 1, 'months' ).startOf( 'month' ).toDate()
+                                }
+                            },
+                            {
+                                teacher     : $scope.user._id
+                            }
+                        ]
+                    }).$promise.then( function ( data ) {
+                        $scope.questionariesLast    = Questionaries.getTotal();
                     });
                     break;
             }
