@@ -6,6 +6,7 @@ define( function ( require ) {
     var CommonConfig    = require( 'common/CommonConfig' );
     var CommonRun       = require( 'common/CommonRun' );
     var LocaleService   = require( 'common/LocaleService' );
+    var RelativeDate    = require( 'common/RelativeDate' );
     var SignService     = require( 'common/SignService' );
 
     var CommonModule    = angular.module( 'CommonModule', [
@@ -20,6 +21,8 @@ define( function ( require ) {
     CommonModule.factory( 'BaseService', [ '$rootScope', '$resource', 'config', 'events', BaseService ] );
 
     CommonModule.factory( 'SignService', [ 'config', SignService ] );
+
+    CommonModule.filter( 'relativeDate', [ '$translate', RelativeDate ] );
 
     CommonModule.run([ '$rootScope', '$location', 'LocaleService', CommonRun ]);
 
