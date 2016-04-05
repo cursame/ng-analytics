@@ -80,7 +80,72 @@ define( function () {
         $scope.$on( Activities.getEvent( 'QUERIED' ), function () {
             $scope.totalActivities  = Activities.getTotal();
         });
-        $scope.$on( events['USERS_RETRIEVED'], function () {
+        $scope.$on( Courses.getEvent( 'QUERIED' ), function () {
+            if ( $scope.user.$resolved && $scope.user.type == 2 ) {
+                var courses     = [],
+                    filters     = [];
+
+                for ( var i = 0; i < $scope.courses.length; i++ ) {
+                    courses.push({
+                        course  : $scope.courses[i]._id
+                    });
+
+                    filters.push({
+                        $and    : [
+                            {
+                                course      : $scope.courses[i]._id
+                            },
+                            {
+                                students    : $scope.user._id
+                            }
+                        ]
+                    });
+                }
+
+                Assignments.query({
+                    $and        : [
+                        {
+                            date        : {
+                                $lte    : moment().endOf( 'month' ).toDate()
+                            }
+                        },
+                        {
+                            date        : {
+                                $gte    : moment().startOf( 'month' ).toDate()
+                            }
+                        },
+                        {
+                            $or         : courses
+                        }
+                    ],
+                    $or         : courses,
+                    per_page    : 1
+                }).$promise.then( function ( data ) {
+                    $scope.assignments          = Assignments.getTotal();
+                });
+                Assignments.query({
+                    $and        : [
+                        {
+                            date        : {
+                                $lte    : moment().endOf( 'month' ).toDate()
+                            }
+                        },
+                        {
+                            date        : {
+                                $gte    : moment().startOf( 'month' ).toDate()
+                            }
+                        },
+                        {
+                            $or         : filters
+                        }
+                    ],
+                    per_page    : 1
+                }).$promise.then( function ( data ) {
+                    $scope.assignmentsSolved    = Assignments.getTotal();
+                });
+            }
+        });
+        $scope.$on( Users.getEvent('RETRIEVED' ), function () {
             switch ( $scope.user.type ) {
                 case 1 :
                     $scope.queryActivities  = function () {
@@ -316,10 +381,17 @@ define( function () {
                             user        : $scope.user._id
                         });
                     };
+
+                    $scope.courses          = Courses.query({
+                        limit       : 99999,
+                        students    : $scope.user._id
+                    });
                     break;
             }
 
-            $scope.queryActivities();
+            if ( $scope.user.$resolved ) {
+                $scope.queryActivities();
+            }
         });
     };
 });
