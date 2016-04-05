@@ -15,6 +15,7 @@
 
     "label.admin"               : "admin",
     "label.assignments"         : "Assignments",
+    "label.comments"            : "Comments",
     "label.courses"             : "Courses",
     "label.discussions"         : "Discussions",
     "label.email"               : "Email",

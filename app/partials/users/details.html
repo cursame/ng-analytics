@@ -53,6 +53,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="widgets-container row">
+                    <div class="col-md-4">
+                        <div class="widget">
+                            <p>{{ 'label.comments' | translate }}</p>
+                            <h4>{{ comments | number }}</h4>
+                            <span class="indicator indicator-up" ng-if="comments > commentsLast"></span>
+                            <span class="indicator indicator-down" ng-if="comments < commentsLast"></span>
+                            <span class="indicator indicator-same" ng-if="comments == commentsLast"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
