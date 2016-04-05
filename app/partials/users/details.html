@@ -72,6 +72,15 @@
                             <span class="indicator indicator-same" ng-if="questionaries == questionariesLast"></span>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="widget">
+                            <p>{{ 'label.files' | translate }}</p>
+                            <h4>{{ files | number }}</h4>
+                            <span class="indicator indicator-up" ng-if="files > filesLast"></span>
+                            <span class="indicator indicator-down" ng-if="files < filesLast"></span>
+                            <span class="indicator indicator-same" ng-if="files == filesLast"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
