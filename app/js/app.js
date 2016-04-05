@@ -10,6 +10,7 @@ define( function ( require ) {
     require( 'dashboard/DashboardModule' );
     require( 'discussions/DiscussionsModule' );
     require( 'logins/LoginsModule' );
+    require( 'questionaries/QuestionariesModule' );
     require( 'sessions/SessionsModule' );
     require( 'users/UsersModule' );
 
@@ -30,6 +31,7 @@ define( function ( require ) {
             'DashboardModule',
             'DiscussionsModule',
             'LoginsModule',
+            'QuestionariesModule',
             'SessionsModule',
             'UsersModule'
         ]);
