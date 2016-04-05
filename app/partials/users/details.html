@@ -85,5 +85,25 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="30%">{{ 'label.activity' | translate }}</th>
+                    <th width="30%">{{ 'label.course' | translate }}</th>
+                    <th>{{ 'label.date' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="activity in activities">
+                    <td>{{ 'label.activity.' + activity.activity | translate }}</td>
+                    <td>{{ activity.course.name }}</td>
+                    <td>{{ activity.date | relativeDate }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="text-center">
+            <uib-pagination max-size="3" boundary-links="true" boundary-link-numbers="true" rotate="true" total-items="totalActivities" items-per-page="per_page" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-model="page" ng-change="queryActivities()"></uib-pagination>
+        </p>
+    </div>
 </div>

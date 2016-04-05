@@ -1,7 +1,7 @@
 'use strict';
 
 define( function () {
-    return function ( $scope, $stateParams, $translate, Users, Logins, Courses, Assignments, Discussions, Comments, Questionaries, Files ) {
+    return function ( $scope, $stateParams, $translate, events, Users, Logins, Activities, Courses, Assignments, Discussions, Comments, Questionaries, Files ) {
         var start       = moment().startOf( 'week' ).toDate(),
             end         = moment().endOf( 'week' ).toDate(),
             months      = [
@@ -56,15 +56,17 @@ define( function () {
                 });
             };
 
-        $scope.options  = {
+        $scope.options          = {
             responsive          : true,
             barValueSpacing     : 7,
             barStrokeWidth      : 1
         };
-        $scope.user     = Users.get( $stateParams.id );
-        $scope.dateOpts = {
+        $scope.user             = Users.get( $stateParams.id );
+        $scope.dateOpts         = {
             showWeeks   : false
         };
+        $scope.page             = 1;
+        $scope.per_page         = 10;
 
         $scope.$watch( 'date', function ( date ) {
             if ( date ) {
@@ -75,9 +77,21 @@ define( function () {
             graph();
         });
 
-        $scope.$on( Users.getEvent( 'RETRIEVED' ), function () {
+        $scope.$on( Activities.getEvent( 'QUERIED' ), function () {
+            $scope.totalActivities  = Activities.getTotal();
+        });
+        $scope.$on( events['USERS_RETRIEVED'], function () {
             switch ( $scope.user.type ) {
                 case 1 :
+                    $scope.queryActivities  = function () {
+                        $scope.activities   = Activities.query({
+                            expanded    : true,
+                            page        : $scope.page,
+                            per_page    : $scope.per_page,
+                            teacher     : $scope.user._id
+                        });
+                    };
+
                     $scope.courses      = Courses.query({
                         $and    : [
                             {
@@ -293,7 +307,19 @@ define( function () {
                         $scope.filesLast    = Files.getTotal();
                     });
                     break;
+                case 2 :
+                    $scope.queryActivities  = function () {
+                        $scope.activities   = Activities.query({
+                            expanded    : true,
+                            page        : $scope.page,
+                            per_page    : $scope.per_page,
+                            user        : $scope.user._id
+                        });
+                    };
+                    break;
             }
+
+            $scope.queryActivities();
         });
     };
 });
