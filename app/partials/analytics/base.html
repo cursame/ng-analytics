@@ -1,0 +1,13 @@
+<div id="subheader">
+    <ul>
+        <li ng-class="{active:$state.includes('analytics.general')}"><a ui-sref="analytics.general">{{ 'menu.general' | translate }}</a></li>
+        <li ng-class="{active:$state.includes('analytics.courses')}"><a ui-sref="analytics.courses">{{ 'menu.courses_details' | translate }}</a></li>
+        <li ng-class="{active:$state.includes('analytics.teachers')}"><a ui-sref="analytics.teachers">{{ 'menu.teachers_details' | translate }}</a></li>
+        <li ng-class="{active:$state.includes('analytics.students')}"><a ui-sref="analytics.students">{{ 'menu.students_details' | translate }}</a></li>
+    </ul>
+</div>
+<div class="row">
+    <div class="col-lg-11 col-md-11">
+        <div id="content" ui-view="analytics-content"></div>
+    </div>
+</div>

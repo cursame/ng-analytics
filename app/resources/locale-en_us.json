@@ -68,11 +68,15 @@
 
     "menu.administrators"       : "Admins",
     "menu.analytics"            : "Analytics",
+    "menu.courses_details"      : "Courses Details",
     "menu.details"              : "Details",
+    "menu.general"              : "General",
     "menu.logout"               : "Logout",
     "menu.professors"           : "Professors",
     "menu.remove"               : "Remove",
     "menu.students"             : "Students",
+    "menu.students_details"     : "Students Details",
+    "menu.teachers_details"     : "Teachers Details",
     "menu.users"                : "Users",
 
     "month.january"             : "January",
