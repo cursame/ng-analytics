@@ -14,7 +14,13 @@ define( function () {
                 }
             })
             .state( 'analytics.general', {
-                url     : '/general'
+                url     : '/general',
+                views   : {
+                    'analytics-content' : {
+                        templateUrl     : 'partials/analytics/general.html',
+                        controller      : 'AnalyticsGeneralCtrl'
+                    }
+                }
             });
     };
 });

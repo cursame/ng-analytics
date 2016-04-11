@@ -1,9 +1,12 @@
 'use strict';
 
 define( function ( require ) {
-    var AnalyticsRouter     = require( 'analytics/AnalyticsRouter' );
+    var AnalyticsGeneralCtrl    = require( 'analytics/AnalyticsGeneralCtrl' );
+    var AnalyticsRouter         = require( 'analytics/AnalyticsRouter' );
 
-    var AnalyticsModule     = angular.module( 'AnalyticsModule', []);
+    var AnalyticsModule         = angular.module( 'AnalyticsModule', []);
 
     AnalyticsModule.config([ '$stateProvider', AnalyticsRouter ]);
+
+    AnalyticsModule.controller( 'AnalyticsGeneralCtrl', [ '$scope', '$translate', 'LoginsService', AnalyticsGeneralCtrl ]);
 });
