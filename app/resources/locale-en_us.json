@@ -50,6 +50,7 @@
     "label.activity.LIKE"       : "Like",
     "label.admin"               : "admin",
     "label.assignments"         : "Assignments",
+    "label.average_last_month"  : "Average Last Month",
     "label.comments"            : "Comments",
     "label.course"              : "Course",
     "label.courses"             : "Courses",
