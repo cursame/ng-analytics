@@ -21,28 +21,28 @@
                     <div class="col-md-4">
                         <div class="widget">
                             <p>{{ 'label.courses' | translate }}</p>
-                            <h4>{{ courses.length | number }}</h4>
-                            <span class="indicator indicator-up" ng-if="courses.length > coursesLast.length"></span>
-                            <span class="indicator indicator-down" ng-if="courses.length < coursesLast.length"></span>
-                            <span class="indicator indicator-same" ng-if="courses.length == coursesLast.length"></span>
+                            <h4>{{ stats.coursesCurrent | number }}</h4>
+                            <span class="indicator indicator-up" ng-if="stats.coursesCurrent > stats.coursesLast"></span>
+                            <span class="indicator indicator-down" ng-if="stats.coursesCurrent < stats.coursesLast"></span>
+                            <span class="indicator indicator-same" ng-if="stats.coursesCurrent == stats.coursesLast"></span>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="widget">
                             <p>{{ 'label.assignments' | translate }}</p>
-                            <h4>{{ assignments | number }}</h4>
-                            <span class="indicator indicator-up" ng-if="assignments > assignmentsLast"></span>
-                            <span class="indicator indicator-down" ng-if="assignments < assignmentsLast"></span>
-                            <span class="indicator indicator-same" ng-if="assignments == assignmentsLast"></span>
+                            <h4>{{ stats.assignmentsCurrent | number }}</h4>
+                            <span class="indicator indicator-up" ng-if="stats.assignmentsCurrent > stats.assignmentsLast"></span>
+                            <span class="indicator indicator-down" ng-if="stats.assignmentsCurrent < stats.assignmentsLast"></span>
+                            <span class="indicator indicator-same" ng-if="stats.assignmentsCurrent == stats.assignmentsLast"></span>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="widget">
                             <p>{{ 'label.discussions' | translate }}</p>
-                            <h4>{{ discussions | number }}</h4>
-                            <span class="indicator indicator-up" ng-if="discussions > discussionsLast"></span>
-                            <span class="indicator indicator-down" ng-if="discussions < discussionsLast"></span>
-                            <span class="indicator indicator-same" ng-if="discussions == discussionsLast"></span>
+                            <h4>{{ stats.discussionsCurrent | number }}</h4>
+                            <span class="indicator indicator-up" ng-if="stats.discussionsCurrent > stats.discussionsLast"></span>
+                            <span class="indicator indicator-down" ng-if="stats.discussionsCurrent < stats.discussionsLast"></span>
+                            <span class="indicator indicator-same" ng-if="stats.discussionsCurrent == stats.discussionsLast"></span>
                         </div>
                     </div>
                 </div>
@@ -50,28 +50,28 @@
                     <div class="col-md-4">
                         <div class="widget">
                             <p>{{ 'label.comments' | translate }}</p>
-                            <h4>{{ comments | number }}</h4>
-                            <span class="indicator indicator-up" ng-if="comments > commentsLast"></span>
-                            <span class="indicator indicator-down" ng-if="comments < commentsLast"></span>
-                            <span class="indicator indicator-same" ng-if="comments == commentsLast"></span>
+                            <h4>{{ stats.commentsCurrent | number }}</h4>
+                            <span class="indicator indicator-up" ng-if="stats.commentsCurrent > stats.commentsLast"></span>
+                            <span class="indicator indicator-down" ng-if="stats.commentsCurrent < stats.commentsLast"></span>
+                            <span class="indicator indicator-same" ng-if="stats.commentsCurrent == stats.commentsLast"></span>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="widget">
                             <p>{{ 'label.questionaries' | translate }}</p>
-                            <h4>{{ questionaries | number }}</h4>
-                            <span class="indicator indicator-up" ng-if="questionaries > questionariesLast"></span>
-                            <span class="indicator indicator-down" ng-if="questionaries < questionariesLast"></span>
-                            <span class="indicator indicator-same" ng-if="questionaries == questionariesLast"></span>
+                            <h4>{{ stats.questionariesCurrent | number }}</h4>
+                            <span class="indicator indicator-up" ng-if="stats.questionariesCurrent > stats.questionariesLast"></span>
+                            <span class="indicator indicator-down" ng-if="stats.questionariesCurrent < stats.questionariesLast"></span>
+                            <span class="indicator indicator-same" ng-if="stats.questionariesCurrent == stats.questionariesLast"></span>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="widget">
                             <p>{{ 'label.files' | translate }}</p>
-                            <h4>{{ files | number }}</h4>
-                            <span class="indicator indicator-up" ng-if="files > filesLast"></span>
-                            <span class="indicator indicator-down" ng-if="files < filesLast"></span>
-                            <span class="indicator indicator-same" ng-if="files == filesLast"></span>
+                            <h4>{{ stats.filesCurrent | number }}</h4>
+                            <span class="indicator indicator-up" ng-if="stats.filesCurrent > stats.filesLast"></span>
+                            <span class="indicator indicator-down" ng-if="stats.filesCurrent < stats.filesLast"></span>
+                            <span class="indicator indicator-same" ng-if="stats.filesCurrent == stats.filesLast"></span>
                         </div>
                     </div>
                 </div>
@@ -80,36 +80,36 @@
                 <h2>{{ 'label.last_month_activity' | translate }}</h2>
                 <div class="row">
                     <div class="col-md-4">
-                        <p>{{ 'label.homeworks' | translate }}: <span class="green">{{ assignmentsSolved }} {{ 'label.of' | translate }} {{ assignments }}</span></p>
+                        <p>{{ 'label.homeworks' | translate }}: <span class="green">{{ stats.assignmentsSolved }} {{ 'label.of' | translate }} {{ stats.assignments }}</span></p>
                     </div>
                     <div class="col-md-7">
                         <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ assignmentsSolved / assignments * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ assignmentsSolved / assignments * 100 | number:2; }}%;">
-                                {{ assignmentsSolved / assignments * 100 | number:2 }}%
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ stats.assignmentsSolved / stats.assignments * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ stats.assignmentsSolved / stats.assignments * 100 | number:2; }}%;">
+                                {{ stats.assignmentsSolved / stats.assignments * 100 | number:2 }}%
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <p>{{ 'label.discussions' | translate }}: <span class="green">{{ discussionsSolved }} {{ 'label.of' | translate }} {{ discussions }}</span></p>
+                        <p>{{ 'label.discussions' | translate }}: <span class="green">{{ stats.discussionsSolved }} {{ 'label.of' | translate }} {{ stats.discussions }}</span></p>
                     </div>
                     <div class="col-md-7">
                         <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ discussionsSolved / discussions * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ discussionsSolved / discussions * 100 | number:2; }}%;">
-                                {{ discussionsSolved / discussions * 100 | number:2 }}%
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ stats.discussionsSolved / stats.discussions * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ stats.discussionsSolved / stats.discussions * 100 | number:2; }}%;">
+                                {{ stats.discussionsSolved / stats.discussions * 100 | number:2 }}%
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <p>{{ 'label.questionaries' | translate }}: <span class="green">{{ questionariesSolved }} {{ 'label.of' | translate }} {{ questionaries }}</span></p>
+                        <p>{{ 'label.questionaries' | translate }}: <span class="green">{{ stats.questionariesSolved }} {{ 'label.of' | translate }} {{ stats.questionaries }}</span></p>
                     </div>
                     <div class="col-md-7">
                         <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ questionariesSolved / questionaries * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ questionariesSolved / questionaries * 100 | number:2; }}%;">
-                                {{ questionariesSolved / questionaries * 100 | number:2 }}%
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ stats.questionariesSolved / stats.questionaries * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ stats.questionariesSolved / stats.questionaries * 100 | number:2; }}%;">
+                                {{ stats.questionariesSolved / stats.questionaries * 100 | number:2 }}%
                             </div>
                         </div>
                     </div>
