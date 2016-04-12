@@ -1,7 +1,7 @@
 'use strict';
 
 define( function () {
-    return function ( $scope, $stateParams, Users, Activities, StatsTeachers, StatsStudents ) {
+    return function ( $scope, $stateParams, Users, Activities, StatsStudents ) {
         $scope.user             = Users.get( $stateParams.id );
         $scope.page             = 1;
         $scope.per_page         = 10;
@@ -20,7 +20,6 @@ define( function () {
                             teacher     : $scope.user._id
                         });
                     };
-                    $scope.stats    = StatsTeachers.getStats( $scope.user._id );
                     break;
                 case 2 :
                     $scope.queryActivities  = function () {
