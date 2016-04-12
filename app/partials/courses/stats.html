@@ -1,0 +1,58 @@
+<div class="widgets-container row">
+    <div class="col-md-4">
+        <div class="widget">
+            <p>{{ 'label.courses' | translate }}</p>
+            <h4>{{ stats.coursesCurrent | number }}</h4>
+            <span class="indicator indicator-up" ng-if="stats.coursesCurrent > stats.coursesLast"></span>
+            <span class="indicator indicator-down" ng-if="stats.coursesCurrent < stats.coursesLast"></span>
+            <span class="indicator indicator-same" ng-if="stats.coursesCurrent == stats.coursesLast"></span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="widget">
+            <p>{{ 'label.assignments' | translate }}</p>
+            <h4>{{ stats.assignmentsCurrent | number }}</h4>
+            <span class="indicator indicator-up" ng-if="stats.assignmentsCurrent > stats.assignmentsLast"></span>
+            <span class="indicator indicator-down" ng-if="stats.assignmentsCurrent < stats.assignmentsLast"></span>
+            <span class="indicator indicator-same" ng-if="stats.assignmentsCurrent == stats.assignmentsLast"></span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="widget">
+            <p>{{ 'label.discussions' | translate }}</p>
+            <h4>{{ stats.discussionsCurrent | number }}</h4>
+            <span class="indicator indicator-up" ng-if="stats.discussionsCurrent > stats.discussionsLast"></span>
+            <span class="indicator indicator-down" ng-if="stats.discussionsCurrent < stats.discussionsLast"></span>
+            <span class="indicator indicator-same" ng-if="stats.discussionsCurrent == stats.discussionsLast"></span>
+        </div>
+    </div>
+</div>
+<div class="widgets-container row">
+    <div class="col-md-4">
+        <div class="widget">
+            <p>{{ 'label.comments' | translate }}</p>
+            <h4>{{ stats.commentsCurrent | number }}</h4>
+            <span class="indicator indicator-up" ng-if="stats.commentsCurrent > stats.commentsLast"></span>
+            <span class="indicator indicator-down" ng-if="stats.commentsCurrent < stats.commentsLast"></span>
+            <span class="indicator indicator-same" ng-if="stats.commentsCurrent == stats.commentsLast"></span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="widget">
+            <p>{{ 'label.questionaries' | translate }}</p>
+            <h4>{{ stats.questionariesCurrent | number }}</h4>
+            <span class="indicator indicator-up" ng-if="stats.questionariesCurrent > stats.questionariesLast"></span>
+            <span class="indicator indicator-down" ng-if="stats.questionariesCurrent < stats.questionariesLast"></span>
+            <span class="indicator indicator-same" ng-if="stats.questionariesCurrent == stats.questionariesLast"></span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="widget">
+            <p>{{ 'label.files' | translate }}</p>
+            <h4>{{ stats.filesCurrent | number }}</h4>
+            <span class="indicator indicator-up" ng-if="stats.filesCurrent > stats.filesLast"></span>
+            <span class="indicator indicator-down" ng-if="stats.filesCurrent < stats.filesLast"></span>
+            <span class="indicator indicator-same" ng-if="stats.filesCurrent == stats.filesLast"></span>
+        </div>
+    </div>
+</div>
