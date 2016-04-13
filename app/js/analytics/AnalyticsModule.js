@@ -9,7 +9,7 @@ define( function ( require ) {
 
     AnalyticsModule.config([ '$stateProvider', AnalyticsRouter ]);
 
-    AnalyticsModule.controller( 'AnalyticsGeneralCtrl', [ '$scope', '$translate', 'LoginsService', AnalyticsGeneralCtrl ]);
+    AnalyticsModule.controller( 'AnalyticsGeneralCtrl', [ '$scope', AnalyticsGeneralCtrl ]);
 
     AnalyticsModule.controller( 'AnalyticsCoursesCtrl', [ '$scope', 'CoursesService', AnalyticsCoursesCtrl ] );
 });
