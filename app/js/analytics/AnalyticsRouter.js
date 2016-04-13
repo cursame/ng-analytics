@@ -21,6 +21,15 @@ define( function () {
                         controller      : 'AnalyticsGeneralCtrl'
                     }
                 }
+            })
+            .state( 'analytics.courses', {
+                url     : '/courses',
+                views   : {
+                    'analytics-content' : {
+                        templateUrl     : 'partials/analytics/courses.html',
+                        controller      : 'AnalyticsCoursesCtrl'
+                    }
+                }
             });
     };
 });

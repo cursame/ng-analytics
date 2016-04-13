@@ -1,6 +1,7 @@
 'use strict';
 
 define( function ( require ) {
+    var AnalyticsCoursesCtrl    = require( 'analytics/AnalyticsCoursesCtrl' );
     var AnalyticsGeneralCtrl    = require( 'analytics/AnalyticsGeneralCtrl' );
     var AnalyticsRouter         = require( 'analytics/AnalyticsRouter' );
 
@@ -9,4 +10,6 @@ define( function ( require ) {
     AnalyticsModule.config([ '$stateProvider', AnalyticsRouter ]);
 
     AnalyticsModule.controller( 'AnalyticsGeneralCtrl', [ '$scope', '$translate', 'LoginsService', AnalyticsGeneralCtrl ]);
+
+    AnalyticsModule.controller( 'AnalyticsCoursesCtrl', [ '$scope', 'CoursesService', AnalyticsCoursesCtrl ] );
 });

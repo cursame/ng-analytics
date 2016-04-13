@@ -1,0 +1,23 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>{{ 'header.course' | translate }}</th>
+            <th width="25%" class="text-center">{{ 'header.professor' | translate }}</th>
+            <th width="12%" class="text-center">{{ 'header.students' | translate }}</th>
+            <th width="12%" class="text-center">{{ 'header.assignments' | translate }}</th>
+            <th width="12%" class="text-center">{{ 'header.discussions' | translate }}</th>
+            <th width="12%" class="text-center">{{ 'header.questionaries' | translate }}</th>
+            <th width="12%" class="text-center">{{ 'header.files' | translate }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="course in courses">
+            <td>{{ course.name }}</td>
+            <td class="text-center">{{ course.teacher.name }}</td>
+            <td class="text-center">{{ course.students.length | number }}</td>
+        </tr>
+    </tbody>
+</table>
+<p class="text-center">
+    <uib-pagination max-size="10" boundary-links="true" boundary-link-numbers="true" rotate="true" total-items="total" items-per-page="per_page" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-model="page" ng-change="query()"></uib-pagination>
+</p>

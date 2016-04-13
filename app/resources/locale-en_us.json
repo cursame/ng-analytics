@@ -39,9 +39,15 @@
 
     "header.action"             : "Action",
     "header.admin"              : "Admin",
+    "header.assignments"        : "Assignments",
+    "header.course"             : "Course",
+    "header.discussions"        : "Discussions",
     "header.email"              : "Email",
+    "header.files"              : "Files",
     "header.professor"          : "Professor",
     "header.student"            : "Student",
+    "header.students"           : "Students",
+    "header.questionaries"      : "Questionaries",
 
     "label.activity"            : "Activity",
     "label.activity.COMMENT"    : "Comment",
