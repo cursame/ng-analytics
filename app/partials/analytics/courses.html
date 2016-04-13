@@ -15,6 +15,30 @@
             <td>{{ course.name }}</td>
             <td class="text-center">{{ course.teacher.name }}</td>
             <td class="text-center">{{ course.students.length | number }}</td>
+            <td class="text-center">
+                {{ course.stats.assignmentsCurrent | number }}
+                <span class="indicator indicator-up" ng-if="course.stats.assignmentsCurrent > course.stats.assignmentsLast"></span>
+                <span class="indicator indicator-down" ng-if="course.stats.assignmentsCurrent < course.stats.assignmentsLast"></span>
+                <span class="indicator indicator-same" ng-if="course.stats.assignmentsCurrent == course.stats.assignmentsLast"></span>
+            </td>
+            <td class="text-center">
+                {{ course.stats.discussionsCurrent | number }}
+                <span class="indicator indicator-up" ng-if="course.stats.discussionsCurrent > course.stats.discussionsLast"></span>
+                <span class="indicator indicator-down" ng-if="course.stats.discussionsCurrent < course.stats.discussionsLast"></span>
+                <span class="indicator indicator-same" ng-if="course.stats.discussionsCurrent == course.stats.discussionsLast"></span>
+            </td>
+            <td class="text-center">
+                {{ course.stats.questionariesCurrent | number }}
+                <span class="indicator indicator-up" ng-if="course.stats.questionariesCurrent > course.stats.questionariesLast"></span>
+                <span class="indicator indicator-down" ng-if="course.stats.questionariesCurrent < course.stats.questionariesLast"></span>
+                <span class="indicator indicator-same" ng-if="course.stats.questionariesCurrent == course.stats.questionariesLast"></span>
+            </td>
+            <td class="text-center">
+                {{ course.stats.filesCurrent | number }}
+                <span class="indicator indicator-up" ng-if="course.stats.filesCurrent > course.stats.filesLast"></span>
+                <span class="indicator indicator-down" ng-if="course.stats.filesCurrent < course.stats.filesLast"></span>
+                <span class="indicator indicator-same" ng-if="course.stats.filesCurrent == course.stats.filesLast"></span>
+            </td>
         </tr>
     </tbody>
 </table>

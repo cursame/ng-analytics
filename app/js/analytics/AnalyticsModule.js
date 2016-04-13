@@ -11,5 +11,5 @@ define( function ( require ) {
 
     AnalyticsModule.controller( 'AnalyticsGeneralCtrl', [ '$scope', AnalyticsGeneralCtrl ]);
 
-    AnalyticsModule.controller( 'AnalyticsCoursesCtrl', [ '$scope', 'CoursesService', AnalyticsCoursesCtrl ] );
+    AnalyticsModule.controller( 'AnalyticsCoursesCtrl', [ '$scope', 'CoursesService', 'StatsTeachersService', AnalyticsCoursesCtrl ] );
 });
