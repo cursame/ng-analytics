@@ -13,7 +13,7 @@
     <tbody>
         <tr ng-repeat="course in courses">
             <td>{{ course.name }}</td>
-            <td class="text-center">{{ course.teacher.name }}</td>
+            <td class="text-center"><a ui-sref="users.details({ id : course.teacher._id })">{{ course.teacher.name }}</a></td>
             <td class="text-center">{{ course.students.length | number }}</td>
             <td class="text-center">
                 {{ course.stats.assignmentsCurrent | number }}
