@@ -31,6 +31,15 @@ define( function () {
                     }
                 }
             })
+            .state( 'analytics.students', {
+                url     : '/students',
+                views   : {
+                    'analytics-content' : {
+                        templateUrl     : 'partials/analytics/students.html',
+                        controller      : 'AnalyticsStudentsCtrl'
+                    }
+                }
+            })
             .state( 'analytics.teachers', {
                 url     : '/teachers',
                 views   : {

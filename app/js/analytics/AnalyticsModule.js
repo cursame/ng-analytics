@@ -4,6 +4,7 @@ define( function ( require ) {
     var AnalyticsCoursesCtrl    = require( 'analytics/AnalyticsCoursesCtrl' );
     var AnalyticsGeneralCtrl    = require( 'analytics/AnalyticsGeneralCtrl' );
     var AnalyticsRouter         = require( 'analytics/AnalyticsRouter' );
+    var AnalyticsStudentsCtrl   = require( 'analytics/AnalyticsStudentsCtrl' );
     var AnalyticsTeachersCtrl   = require( 'analytics/AnalyticsTeachersCtrl' );
 
     var AnalyticsModule         = angular.module( 'AnalyticsModule', []);
@@ -13,6 +14,8 @@ define( function ( require ) {
     AnalyticsModule.controller( 'AnalyticsGeneralCtrl', [ '$scope', AnalyticsGeneralCtrl ]);
 
     AnalyticsModule.controller( 'AnalyticsCoursesCtrl', [ '$scope', 'CoursesService', 'StatsTeachersService', AnalyticsCoursesCtrl ] );
+
+    AnalyticsModule.controller( 'AnalyticsStudentsCtrl', [ '$scope', 'UsersService', 'StatsStudentsService', AnalyticsStudentsCtrl ] );
 
     AnalyticsModule.controller( 'AnalyticsTeachersCtrl', [ '$scope', 'UsersService', 'StatsTeachersService', AnalyticsTeachersCtrl ] );
 });
