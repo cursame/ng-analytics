@@ -2,7 +2,7 @@
 
 define( function () {
     return function ( $q, Courses, Assignments, Discussions, Comments, Questionaries, Files, Logins ) {
-        function Stats ( user, course ) {
+        function TeachersStats ( user, course ) {
             this._course    = course;
             this._data      = {
                 assignmentsCurrent      : false,
@@ -25,7 +25,7 @@ define( function () {
             this._user      = user;
         };
 
-        Stats.prototype._check              = function () {
+        TeachersStats.prototype._check              = function () {
             if ( this._data.assignmentsCurrent !== false && this._data.assignmentsLast !== false &&
                  this._data.commentsCurrent !== false && this._data.commentsLast !== false &&
                  this._data.coursesCurrent !== false && this._data.coursesLast !== false &&
@@ -37,7 +37,7 @@ define( function () {
             }
         };
 
-        Stats.prototype._getAssignments     = function () {
+        TeachersStats.prototype._getAssignments     = function () {
             var that            = this;
 
             Assignments.query({
@@ -88,7 +88,7 @@ define( function () {
             });
         };
 
-        Stats.prototype._getComments        = function () {
+        TeachersStats.prototype._getComments        = function () {
             var that            = this;
 
             Comments.query({
@@ -139,7 +139,7 @@ define( function () {
             });
         };
 
-        Stats.prototype._getCourses         = function () {
+        TeachersStats.prototype._getCourses         = function () {
             var that            = this;
 
             Courses.query({
@@ -174,7 +174,7 @@ define( function () {
             });
         };
 
-        Stats.prototype._getDiscussions     = function () {
+        TeachersStats.prototype._getDiscussions     = function () {
             var that            = this;
 
             Discussions.query({
@@ -225,7 +225,7 @@ define( function () {
             });
         };
 
-        Stats.prototype._getFiles           = function () {
+        TeachersStats.prototype._getFiles           = function () {
             var that            = this;
 
             Files.query({
@@ -276,7 +276,7 @@ define( function () {
             });
         };
 
-        Stats.prototype._getLogins          = function () {
+        TeachersStats.prototype._getLogins          = function () {
             var that            = this;
 
             Logins.query({
@@ -321,7 +321,7 @@ define( function () {
             });
         };
 
-        Stats.prototype._getQuestionaries   = function () {
+        TeachersStats.prototype._getQuestionaries   = function () {
             var that            = this;
 
             Questionaries.query({
@@ -372,7 +372,7 @@ define( function () {
             });
         };
 
-        Stats.prototype.getResponse         = function () {
+        TeachersStats.prototype.getResponse         = function () {
             var that    = this;
             this._response.promise      = this._deferred.promise;
 
@@ -395,7 +395,7 @@ define( function () {
 
         return {
             getStats    : function ( user, course ) {
-                return new Stats( user, course ).getResponse();
+                return new TeachersStats( user, course ).getResponse();
             }
         };
     };
