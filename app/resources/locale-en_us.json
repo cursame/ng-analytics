@@ -45,6 +45,7 @@
     "header.discussions"        : "Discussions",
     "header.email"              : "Email",
     "header.files"              : "Files",
+    "header.grades"             : "Grades",
     "header.logins"             : "Logins",
     "header.professor"          : "Professor",
     "header.student"            : "Student",

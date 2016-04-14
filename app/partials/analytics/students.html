@@ -2,11 +2,12 @@
     <thead>
         <tr>
             <th>{{ 'header.professor' | translate }}</th>
-            <th width="12%" class="text-center">{{ 'header.logins' | translate }}</th>
-            <th width="12%" class="text-center">{{ 'header.courses' | translate }}</th>
-            <th width="12%" class="text-center">{{ 'header.assignments' | translate }}</th>
-            <th width="12%" class="text-center">{{ 'header.discussions' | translate }}</th>
-            <th width="12%" class="text-center">{{ 'header.questionaries' | translate }}</th>
+            <th width="13%" class="text-center">{{ 'header.logins' | translate }}</th>
+            <th width="13%" class="text-center">{{ 'header.courses' | translate }}</th>
+            <th width="13%" class="text-center">{{ 'header.assignments' | translate }}</th>
+            <th width="13%" class="text-center">{{ 'header.discussions' | translate }}</th>
+            <th width="13%" class="text-center">{{ 'header.questionaries' | translate }}</th>
+            <th width="13%" class="text-center">{{ 'header.grades' | translate }}</th>
         </tr>
     </thead>
     <tbody>
@@ -41,6 +42,12 @@
                 <span class="indicator indicator-up" ng-if="student.stats.questionariesCurrent > student.stats.questionariesLast"></span>
                 <span class="indicator indicator-down" ng-if="student.stats.questionariesCurrent < student.stats.questionariesLast"></span>
                 <span class="indicator indicator-same" ng-if="student.stats.questionariesCurrent == student.stats.questionariesLast"></span>
+            </td>
+            <td class="text-center">
+                {{ student.stats.gradesCurrent | number:1 }}
+                <span class="indicator indicator-up" ng-if="student.stats.gradesCurrent > student.stats.gradesLast"></span>
+                <span class="indicator indicator-down" ng-if="student.stats.gradesCurrent < student.stats.gradesLast"></span>
+                <span class="indicator indicator-same" ng-if="student.stats.gradesCurrent == student.stats.gradesLast"></span>
             </td>
         </tr>
     </tbody>
