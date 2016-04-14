@@ -6,14 +6,20 @@ define( function () {
             this._course    = course;
             this._courses   = [];
             this._data      = {
+                assignmentsCurrent  : false,
+                assignmentsLast     : false,
                 assignmentsSolved   : false,
                 assignmentsTotal    : false,
                 coursesCurrent      : false,
                 coursesLast         : false,
+                discussionsCurrent  : false,
+                discussionsLast     : false,
                 discussionsSolved   : false,
                 discussionsTotal    : false,
                 loginsCurrent       : false,
                 loginsLast          : false,
+                questionariesCurrent: false,
+                questionariesLast   : false,
                 questionariesSolved : false,
                 questionariesTotal  : false
             };
@@ -25,13 +31,67 @@ define( function () {
 
         StudentsStats.prototype._check                  = function () {
             var that    = this;
-            if ( this._data.assignmentsTotal !== false && this._data.assignmentsSolved !== false &&
-                this._data.coursesCurrent !== false && this._data.coursesLast !== false &&
+            if ( this._data.assignmentsCurrent !== false && this._data.assignmentsLast !== false &&
+                 this._data.assignmentsTotal !== false && this._data.assignmentsSolved !== false &&
+                 this._data.coursesCurrent !== false && this._data.coursesLast !== false &&
+                 this._data.discussionsCurrent !== false && this._data.discussionsLast !== false &&
                  this._data.discussionsTotal !== false && this._data.discussionsSolved !== false &&
                  this._data.loginsCurrent !== false && this._data.loginsLast !== false &&
+                 this._data.questionariesCurrent !== false && this._data.questionariesLast !== false &&
                  this._data.questionariesTotal !== false && this._data.questionariesSolved !== false ) {
                 this._deferred.resolve( this._data );
             }
+        };
+
+        StudentsStats.prototype._getAssignments         = function () {
+            var that            = this;
+
+            Assignments.query({
+                $and    : [
+                    {
+                        course      : this._course
+                    },
+                    {
+                        date        : {
+                            $lte    : moment().endOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        date        : {
+                            $gte    : moment().startOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        students    : this._user
+                    }
+                ]
+            }).$promise.then( function ( data ) {
+                that._data.assignmentsCurrent   = Assignments.getTotal();
+                that._check();
+            });
+            Assignments.query({
+                $and    : [
+                    {
+                        course      : this._course
+                    },
+                    {
+                        date        : {
+                            $lte    : moment().subtract( 1, 'months' ).endOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        date        : {
+                            $gte    : moment().subtract( 1, 'months' ).startOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        students    : this._user
+                    }
+                ]
+            }).$promise.then( function ( data ) {
+                that._data.assignmentsLast      = Assignments.getTotal();
+                that._check();
+            });
         };
 
         StudentsStats.prototype._getAssignmentsSolved   = function () {
@@ -113,6 +173,57 @@ define( function () {
                 ]
             }).$promise.then( function ( data ) {
                 that._data.coursesLast      = Courses.getTotal();
+                that._check();
+            });
+        };
+
+        StudentsStats.prototype._getDiscussions         = function () {
+            var that            = this;
+
+            Discussions.query({
+                $and    : [
+                    {
+                        course      : this._course
+                    },
+                    {
+                        date        : {
+                            $lte    : moment().endOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        date        : {
+                            $gte    : moment().startOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        students    : this._user
+                    }
+                ]
+            }).$promise.then( function ( data ) {
+                that._data.discussionsCurrent   = Discussions.getTotal();
+                that._check();
+            });
+            Discussions.query({
+                $and    : [
+                    {
+                        course      : this._course
+                    },
+                    {
+                        date        : {
+                            $lte    : moment().subtract( 1, 'months' ).endOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        date        : {
+                            $gte    : moment().subtract( 1, 'months' ).startOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        students    : this._user
+                    }
+                ]
+            }).$promise.then( function ( data ) {
+                that._data.discussionsLast      = Discussions.getTotal();
                 that._check();
             });
         };
@@ -210,6 +321,57 @@ define( function () {
             });
         };
 
+        StudentsStats.prototype._getQuestionaries       = function () {
+            var that            = this;
+
+            Questionaries.query({
+                $and    : [
+                    {
+                        course      : this._course
+                    },
+                    {
+                        date        : {
+                            $lte    : moment().endOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        date        : {
+                            $gte    : moment().startOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        students    : this._user
+                    }
+                ]
+            }).$promise.then( function ( data ) {
+                that._data.questionariesCurrent = Questionaries.getTotal();
+                that._check();
+            });
+            Questionaries.query({
+                $and    : [
+                    {
+                        course      : this._course
+                    },
+                    {
+                        date        : {
+                            $lte    : moment().subtract( 1, 'months' ).endOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        date        : {
+                            $gte    : moment().subtract( 1, 'months' ).startOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        students    : this._user
+                    }
+                ]
+            }).$promise.then( function ( data ) {
+                that._data.questionariesLast    = Questionaries.getTotal();
+                that._check();
+            });
+        };
+
         StudentsStats.prototype._getQuestionariesSolved = function () {
             var that    = this;
 
@@ -282,10 +444,13 @@ define( function () {
                     });
                 }
 
+                that._getAssignments();
                 that._getAssignmentsSolved();
                 that._getCourses();
+                that._getDiscussions();
                 that._getDiscussionsSolved();
                 that._getLogins();
+                that._getQuestionaries();
                 that._getQuestionariesSolved();
             });
 
