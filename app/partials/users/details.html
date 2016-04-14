@@ -23,36 +23,36 @@
                 <h2>{{ 'label.last_month_activity' | translate }}</h2>
                 <div class="row">
                     <div class="col-md-4">
-                        <p>{{ 'label.homeworks' | translate }}: <span class="green">{{ stats.assignmentsSolved }} {{ 'label.of' | translate }} {{ stats.assignments }}</span></p>
+                        <p>{{ 'label.homeworks' | translate }}: <span class="green">{{ stats.assignmentsSolved }} {{ 'label.of' | translate }} {{ stats.assignmentsTotal }}</span></p>
                     </div>
                     <div class="col-md-7">
                         <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ stats.assignmentsSolved / stats.assignments * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ stats.assignmentsSolved / stats.assignments * 100 | number:2; }}%;">
-                                {{ stats.assignmentsSolved / stats.assignments * 100 | number:2 }}%
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ stats.assignmentsSolved / stats.assignmentsTotal * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ stats.assignmentsSolved / stats.assignmentsTotal * 100 | number:2; }}%;">
+                                {{ stats.assignmentsSolved / stats.assignmentsTotal * 100 | number:2 }}%
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <p>{{ 'label.discussions' | translate }}: <span class="green">{{ stats.discussionsSolved }} {{ 'label.of' | translate }} {{ stats.discussions }}</span></p>
+                        <p>{{ 'label.discussions' | translate }}: <span class="green">{{ stats.discussionsSolved }} {{ 'label.of' | translate }} {{ stats.discussionsTotal }}</span></p>
                     </div>
                     <div class="col-md-7">
                         <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ stats.discussionsSolved / stats.discussions * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ stats.discussionsSolved / stats.discussions * 100 | number:2; }}%;">
-                                {{ stats.discussionsSolved / stats.discussions * 100 | number:2 }}%
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ stats.discussionsSolved / stats.discussionsTotal * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ stats.discussionsSolved / stats.discussionsTotal * 100 | number:2; }}%;">
+                                {{ stats.discussionsSolved / stats.discussionsTotal * 100 | number:2 }}%
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <p>{{ 'label.questionaries' | translate }}: <span class="green">{{ stats.questionariesSolved }} {{ 'label.of' | translate }} {{ stats.questionaries }}</span></p>
+                        <p>{{ 'label.questionaries' | translate }}: <span class="green">{{ stats.questionariesSolved }} {{ 'label.of' | translate }} {{ stats.questionariesTotal }}</span></p>
                     </div>
                     <div class="col-md-7">
                         <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ stats.questionariesSolved / stats.questionaries * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ stats.questionariesSolved / stats.questionaries * 100 | number:2; }}%;">
-                                {{ stats.questionariesSolved / stats.questionaries * 100 | number:2 }}%
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ stats.questionariesSolved / stats.questionariesTotal * 100 | number:2 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ stats.questionariesSolved / stats.questionariesTotal * 100 | number:2; }}%;">
+                                {{ stats.questionariesSolved / stats.questionariesTotal * 100 | number:2 }}%
                             </div>
                         </div>
                     </div>
