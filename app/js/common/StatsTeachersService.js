@@ -1,7 +1,7 @@
 'use strict';
 
 define( function () {
-    return function ( $q, Courses, Assignments, Discussions, Comments, Questionaries, Files ) {
+    return function ( $q, Courses, Assignments, Discussions, Comments, Questionaries, Files, Logins ) {
         function Stats ( user, course ) {
             this._course    = course;
             this._data      = {
@@ -15,6 +15,8 @@ define( function () {
                 discussionsLast         : false,
                 filesCurrent            : false,
                 filesLast               : false,
+                loginsCurrent           : false,
+                loginsLast              : false,
                 questionariesCurrent    : false,
                 questionariesLast       : false
             };
@@ -29,6 +31,7 @@ define( function () {
                  this._data.coursesCurrent !== false && this._data.coursesLast !== false &&
                  this._data.discussionsCurrent !== false && this._data.discussionsLast !== false &&
                  this._data.filesCurrent !== false && this._data.filesLast !== false &&
+                 this._data.loginsCurrent !== false && this._data.loginsLast !== false &&
                  this._data.questionariesCurrent !== false && this._data.questionariesLast !== false ) {
                 this._deferred.resolve( this._data );
             }
@@ -273,6 +276,51 @@ define( function () {
             });
         };
 
+        Stats.prototype._getLogins          = function () {
+            var that            = this;
+
+            Logins.query({
+                $and    : [
+                    {
+                        date        : {
+                            $lte    : moment().endOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        date        : {
+                            $gte    : moment().startOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        user        : this._user
+                    }
+                ]
+            }).$promise.then( function ( data ) {
+                that._data.loginsCurrent        = Logins.getTotal();
+                that._check();
+            });
+            Logins.query({
+                $and    : [
+                    {
+                        date        : {
+                            $lte    : moment().subtract( 1, 'months' ).endOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        date        : {
+                            $gte    : moment().subtract( 1, 'months' ).startOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        user        : this._user
+                    }
+                ]
+            }).$promise.then( function ( data ) {
+                that._data.loginsLast           = Logins.getTotal();
+                that._check();
+            });
+        };
+
         Stats.prototype._getQuestionaries   = function () {
             var that            = this;
 
@@ -333,6 +381,7 @@ define( function () {
             this._getCourses();
             this._getDiscussions();
             this._getFiles();
+            this._getLogins();
             this._getQuestionaries();
 
             this._response.promise.then( function ( data ) {

@@ -26,7 +26,7 @@ define( function ( require ) {
 
     CommonModule.factory( 'StatsStudentsService', [ '$q', 'CoursesService', 'AssignmentsService', 'DiscussionsService', 'QuestionariesService', StatsStudentsService ] );
 
-    CommonModule.factory( 'StatsTeachersService', [ '$q', 'CoursesService', 'AssignmentsService', 'DiscussionsService', 'CommentsService', 'QuestionariesService', 'FilesService', StatsTeachersService ] );
+    CommonModule.factory( 'StatsTeachersService', [ '$q', 'CoursesService', 'AssignmentsService', 'DiscussionsService', 'CommentsService', 'QuestionariesService', 'FilesService', 'LoginsService', StatsTeachersService ] );
 
     CommonModule.filter( 'relativeDate', [ '$translate', RelativeDate ] );
 
