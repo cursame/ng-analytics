@@ -75,6 +75,7 @@
     "label.questionaries"       : "Questionaries",
     "label.remember"            : "Remember me",
     "label.student"             : "student",
+    "label.select_teacher"      : "Teacher",
 
     "menu.administrators"       : "Admins",
     "menu.analytics"            : "Analytics",

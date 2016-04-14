@@ -13,7 +13,7 @@ define( function ( require ) {
 
     AnalyticsModule.controller( 'AnalyticsGeneralCtrl', [ '$scope', AnalyticsGeneralCtrl ]);
 
-    AnalyticsModule.controller( 'AnalyticsCoursesCtrl', [ '$scope', 'CoursesService', 'StatsTeachersService', AnalyticsCoursesCtrl ] );
+    AnalyticsModule.controller( 'AnalyticsCoursesCtrl', [ '$scope', 'CoursesService', 'UsersService', 'StatsTeachersService', AnalyticsCoursesCtrl ] );
 
     AnalyticsModule.controller( 'AnalyticsStudentsCtrl', [ '$scope', 'UsersService', 'StatsStudentsService', AnalyticsStudentsCtrl ] );
 
