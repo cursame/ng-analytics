@@ -1,0 +1,57 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>{{ 'header.professor' | translate }}</th>
+            <th width="12%" class="text-center">{{ 'header.logins' | translate }}</th>
+            <th width="12%" class="text-center">{{ 'header.courses' | translate }}</th>
+            <th width="12%" class="text-center">{{ 'header.assignments' | translate }}</th>
+            <th width="12%" class="text-center">{{ 'header.discussions' | translate }}</th>
+            <th width="12%" class="text-center">{{ 'header.questionaries' | translate }}</th>
+            <th width="12%" class="text-center">{{ 'header.files' | translate }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="teacher in teachers">
+            <td><a ui-sref="users.details({ id : teacher._id })">{{ teacher.name }}</a></td>
+            <td class="text-center">
+                {{ teacher.stats.loginsCurrent | number }}
+                <span class="indicator indicator-up" ng-if="teacher.stats.loginsCurrent > teacher.stats.loginsLast"></span>
+                <span class="indicator indicator-down" ng-if="teacher.stats.loginsCurrent < teacher.stats.loginsLast"></span>
+                <span class="indicator indicator-same" ng-if="teacher.stats.loginsCurrent == teacher.stats.loginsLast"></span>
+            </td>
+            <td class="text-center">
+                {{ teacher.stats.coursesCurrent | number }}
+                <span class="indicator indicator-up" ng-if="teacher.stats.coursesCurrent > teacher.stats.coursesLast"></span>
+                <span class="indicator indicator-down" ng-if="teacher.stats.coursesCurrent < teacher.stats.coursesLast"></span>
+                <span class="indicator indicator-same" ng-if="teacher.stats.coursesCurrent == teacher.stats.coursesLast"></span>
+            </td>
+            <td class="text-center">
+                {{ teacher.stats.assignmentsCurrent | number }}
+                <span class="indicator indicator-up" ng-if="teacher.stats.assignmentsCurrent > teacher.stats.assignmentsLast"></span>
+                <span class="indicator indicator-down" ng-if="teacher.stats.assignmentsCurrent < teacher.stats.assignmentsLast"></span>
+                <span class="indicator indicator-same" ng-if="teacher.stats.assignmentsCurrent == teacher.stats.assignmentsLast"></span>
+            </td>
+            <td class="text-center">
+                {{ teacher.stats.discussionsCurrent | number }}
+                <span class="indicator indicator-up" ng-if="teacher.stats.discussionsCurrent > teacher.stats.discussionsLast"></span>
+                <span class="indicator indicator-down" ng-if="teacher.stats.discussionsCurrent < teacher.stats.discussionsLast"></span>
+                <span class="indicator indicator-same" ng-if="teacher.stats.discussionsCurrent == teacher.stats.discussionsLast"></span>
+            </td>
+            <td class="text-center">
+                {{ teacher.stats.questionariesCurrent | number }}
+                <span class="indicator indicator-up" ng-if="teacher.stats.questionariesCurrent > teacher.stats.questionariesLast"></span>
+                <span class="indicator indicator-down" ng-if="teacher.stats.questionariesCurrent < teacher.stats.questionariesLast"></span>
+                <span class="indicator indicator-same" ng-if="teacher.stats.questionariesCurrent == teacher.stats.questionariesLast"></span>
+            </td>
+            <td class="text-center">
+                {{ teacher.stats.filesCurrent | number }}
+                <span class="indicator indicator-up" ng-if="teacher.stats.filesCurrent > teacher.stats.filesLast"></span>
+                <span class="indicator indicator-down" ng-if="teacher.stats.filesCurrent < teacher.stats.filesLast"></span>
+                <span class="indicator indicator-same" ng-if="teacher.stats.filesCurrent == teacher.stats.filesLast"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="text-center">
+    <uib-pagination max-size="10" boundary-links="true" boundary-link-numbers="true" rotate="true" total-items="total" items-per-page="per_page" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-model="page" ng-change="query()"></uib-pagination>
+</p>

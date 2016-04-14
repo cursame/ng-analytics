@@ -30,6 +30,15 @@ define( function () {
                         controller      : 'AnalyticsCoursesCtrl'
                     }
                 }
+            })
+            .state( 'analytics.teachers', {
+                url     : '/teachers',
+                views   : {
+                    'analytics-content' : {
+                        templateUrl     : 'partials/analytics/teachers.html',
+                        controller      : 'AnalyticsTeachersCtrl'
+                    }
+                }
             });
     };
 });
