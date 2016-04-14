@@ -24,7 +24,7 @@ define( function ( require ) {
 
     CommonModule.factory( 'SignService', [ 'config', SignService ] );
 
-    CommonModule.factory( 'StatsStudentsService', [ '$q', 'CoursesService', 'AssignmentsService', 'DiscussionsService', 'QuestionariesService', 'LoginsService', StatsStudentsService ] );
+    CommonModule.factory( 'StatsStudentsService', [ '$q', 'CoursesService', 'AssignmentsService', 'DiscussionsService', 'QuestionariesService', 'LoginsService', 'GradesService', StatsStudentsService ] );
 
     CommonModule.factory( 'StatsTeachersService', [ '$q', 'CoursesService', 'AssignmentsService', 'DiscussionsService', 'CommentsService', 'QuestionariesService', 'FilesService', 'LoginsService', StatsTeachersService ] );
 

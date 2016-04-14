@@ -1,7 +1,7 @@
 'use strict';
 
 define( function () {
-    return function ( $q, Courses, Assignments, Discussions, Questionaries, Logins ) {
+    return function ( $q, Courses, Assignments, Discussions, Questionaries, Logins, Grades ) {
         function StudentsStats ( user, course ) {
             this._course    = course;
             this._courses   = [];
@@ -276,6 +276,59 @@ define( function () {
             });
         };
 
+        StudentsStats.prototype._getGrades              = function () {
+            var that            = this;
+
+            Grades.query({
+                $and        : [
+                    {
+                        course      : this._course
+                    },
+                    {
+                        date        : {
+                            $lte    : moment().endOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        date        : {
+                            $gte    : moment().startOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        student     : this._user
+                    }
+                ],
+                aggregate   : 'grade'
+            }).$promise.then( function ( data ) {
+                that._data.gradesCurrent        = ( data[0] ) ? data[0].grade : 0;
+                that._check();
+            });
+            Grades.query({
+                $and        : [
+                    {
+                        course      : this._course
+                    },
+                    {
+                        date        : {
+                            $lte    : moment().subtract( 1, 'months' ).endOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        date        : {
+                            $gte    : moment().subtract( 1, 'months' ).startOf( 'month' ).toDate()
+                        }
+                    },
+                    {
+                        student     : this._user
+                    }
+                ],
+                aggregate   : 'grade'
+            }).$promise.then( function ( data ) {
+                that._data.gradesLast           = ( data[0] ) ? data[0].grade : 0;
+                that._check();
+            });
+        };
+
         StudentsStats.prototype._getLogins              = function () {
             var that            = this;
 
@@ -449,6 +502,7 @@ define( function () {
                 that._getCourses();
                 that._getDiscussions();
                 that._getDiscussionsSolved();
+                that._getGrades();
                 that._getLogins();
                 that._getQuestionaries();
                 that._getQuestionariesSolved();
