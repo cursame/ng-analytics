@@ -12,6 +12,7 @@ define( function ( require ) {
     require( 'dashboard/DashboardModule' );
     require( 'discussions/DiscussionsModule' );
     require( 'files/FilesModule' );
+    require( 'grades/GradesModule' );
     require( 'logins/LoginsModule' );
     require( 'questionaries/QuestionariesModule' );
     require( 'sessions/SessionsModule' );
@@ -36,6 +37,7 @@ define( function ( require ) {
             'DashboardModule',
             'DiscussionsModule',
             'FilesModule',
+            'GradesModule',
             'LoginsModule',
             'QuestionariesModule',
             'SessionsModule',
