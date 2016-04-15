@@ -23,6 +23,7 @@ define( function () {
         };
         $scope.teachers = Users.query({
             limit   : 99999,
+            select  : 'name',
             type    : 1
         });
 
