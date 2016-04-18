@@ -17,5 +17,5 @@ define( function ( require ) {
 
     AnalyticsModule.controller( 'AnalyticsStudentsCtrl', [ '$scope', 'UsersService', 'StatsStudentsService', AnalyticsStudentsCtrl ] );
 
-    AnalyticsModule.controller( 'AnalyticsTeachersCtrl', [ '$scope', 'UsersService', 'StatsTeachersService', AnalyticsTeachersCtrl ] );
+    AnalyticsModule.controller( 'AnalyticsTeachersCtrl', [ '$scope', 'UsersService', 'StatsTeachersService', 'CoursesService', AnalyticsTeachersCtrl ] );
 });

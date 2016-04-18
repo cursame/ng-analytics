@@ -1,11 +1,14 @@
 'use strict';
 
 define( function () {
-    return function ( $scope, Users, Stats ) {
+    return function ( $scope, Users, Stats, Courses ) {
+        var _id         = null;
+
         $scope.page     = 1;
         $scope.per_page = 10;
         $scope.query    = function () {
             Users.query({
+                _id         : _id,
                 expanded    : true,
                 page        : $scope.page,
                 per_page    : $scope.per_page,
@@ -19,7 +22,19 @@ define( function () {
                 }
             });
         };
+        $scope.courses  = Courses.query({
+            limit   : 9999,
+            select  : 'name teacher'
+        });
 
-        $scope.query();
+        $scope.$watch( 'course', function ( course ) {
+            if ( course ) {
+                _id     = course.teacher;
+            } else {
+                _id     = null;
+            }
+
+            $scope.query();
+        });
     };
 });
