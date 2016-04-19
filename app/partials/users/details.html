@@ -20,7 +20,16 @@
                 <courses-stats user="user"></courses-stats>
             </div>
             <div class="col-md-12" ng-show="user.type == 2">
-                <h2>{{ 'label.average_last_month' | translate }}: <span class="green"><strong>{{ stats.gradesCurrent | number:2 }}</strong></span></h2>
+                <div class="row">
+                    <h2 class="col-md-9">{{ 'label.average_last_month' | translate }}: <span class="green"><strong>{{ stats.gradesCurrent | number:2 }}</strong></span></h2>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <select name="course" class="form-control" ng-model="course" ng-options="course._id as course.name for course in courses track by course._id">
+                                <option value="">{{ 'label.select_course' | translate }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-4">
                         <p>{{ 'label.homeworks' | translate }}: <span class="green">{{ stats.assignmentsSolved }} {{ 'label.of' | translate }} {{ stats.assignmentsTotal }}</span></p>

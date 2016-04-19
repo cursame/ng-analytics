@@ -1,7 +1,7 @@
 'use strict';
 
 define( function () {
-    return function ( $scope, $stateParams, Users, Activities, StatsStudents ) {
+    return function ( $scope, $stateParams, Users, Activities, StatsStudents, Courses ) {
         $scope.user             = Users.get( $stateParams.id );
         $scope.page             = 1;
         $scope.per_page         = 10;
@@ -22,6 +22,11 @@ define( function () {
                     };
                     break;
                 case 2 :
+                    $scope.courses          = Courses.query({
+                        per_page    : 9999,
+                        select      : 'name',
+                        students    : $scope.user._id
+                    });
                     $scope.queryActivities  = function () {
                         $scope.activities   = Activities.query({
                             expanded    : true,
@@ -37,6 +42,11 @@ define( function () {
 
             if ( $scope.user.$resolved && $scope.queryActivities != undefined ) {
                 $scope.queryActivities();
+            }
+        });
+        $scope.$watch( 'course', function ( course ) {
+            if ( course !== undefined ) {
+                $scope.stats    = StatsStudents.getStats( $scope.user._id, course );
             }
         });
     };
