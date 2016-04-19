@@ -100,6 +100,9 @@ define( function () {
             Assignments.query({
                 $and        : [
                     {
+                        course      : this._course
+                    },
+                    {
                         date        : {
                             $lte    : moment().endOf( 'month' ).toDate()
                         }
@@ -121,6 +124,9 @@ define( function () {
             });
             Assignments.query({
                 $and        : [
+                    {
+                        course      : this._course
+                    },
                     {
                         date        : {
                             $lte    : moment().endOf( 'month' ).toDate()
@@ -234,6 +240,9 @@ define( function () {
             Discussions.query({
                 $and        : [
                     {
+                        course      : this._course
+                    },
+                    {
                         date        : {
                             $lte    : moment().endOf( 'month' ).toDate()
                         }
@@ -255,6 +264,9 @@ define( function () {
             });
             Discussions.query({
                 $and        : [
+                    {
+                        course      : this._course
+                    },
                     {
                         date        : {
                             $lte    : moment().endOf( 'month' ).toDate()
@@ -431,6 +443,9 @@ define( function () {
             Questionaries.query({
                 $and        : [
                     {
+                        course      : this._course
+                    },
+                    {
                         date        : {
                             $lte    : moment().endOf( 'month' ).toDate()
                         }
@@ -452,6 +467,9 @@ define( function () {
             });
             Questionaries.query({
                 $and        : [
+                    {
+                        course      : this._course
+                    },
                     {
                         date        : {
                             $lte    : moment().endOf( 'month' ).toDate()
