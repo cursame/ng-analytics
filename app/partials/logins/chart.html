@@ -1,4 +1,19 @@
 <div class="row">
+    <div class="col-md-8">
+        <h2 class="logins-title">{{ 'header.logins' | translate }}</h2>
+    </div>
+    <div class="col-md-3" ng-show="user == undefined">
+        <div class="form-group">
+            <select name="course" class="form-control" ng-model="userType">
+                <option value="">{{ 'label.select_type' | translate }}</option>
+                <option value="1">{{ 'label.type_teacher' | translate }}</option>
+                <option value="2">{{ 'label.type_student' | translate }}</option>
+                <option value="3">{{ 'label.type_admin' | translate }}</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-6">
         <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-options="options" height="265%"></canvas>
     </div>

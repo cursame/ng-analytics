@@ -40,6 +40,9 @@ define( function () {
                                     }
                                 },
                                 {
+                                    type        : parseInt( scope.userType )
+                                },
+                                {
                                     user        : user
                                 }
                             ],
@@ -93,6 +96,14 @@ define( function () {
                 } else {
                     set();
                 }
+
+                scope.$watch( 'userType', function ( type ) {
+                    if ( type !== undefined ) {
+                        start   = moment().startOf( 'week' ).toDate();
+                        end     = moment().endOf( 'week' ).toDate();
+                        graph();
+                    }
+                });
             }
         };
     };

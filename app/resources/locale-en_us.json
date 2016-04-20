@@ -77,6 +77,10 @@
     "label.student"             : "student",
     "label.select_course"       : "Course",
     "label.select_teacher"      : "Teacher",
+    "label.select_type"         : "User Type",
+    "label.type_admin"          : "Admins",
+    "label.type_student"        : "Students",
+    "label.type_teacher"        : "Teachers",
 
     "menu.administrators"       : "Admins",
     "menu.analytics"            : "Analytics",
