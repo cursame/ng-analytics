@@ -6,13 +6,12 @@ define( function () {
 
         $scope.order    = 'name';
         $scope.page     = 1;
-        $scope.per_page = 10;
         $scope.query    = function () {
             Users.query({
                 _id         : _id,
                 expanded    : true,
                 page        : $scope.page,
-                per_page    : $scope.per_page,
+                per_page    : 999999,
                 type        : 1
             }).$promise.then( function ( data ) {
                 $scope.teachers = data;
