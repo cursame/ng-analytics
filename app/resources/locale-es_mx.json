@@ -74,6 +74,7 @@
     "label.order_courses"       : "Cursos",
     "label.order_discussions"   : "Discusiones",
     "label.order_files"         : "Archivos",
+    "label.order_grades"        : "Calificaciones",
     "label.order_logins"        : "Accesos",
     "label.order_questionaries" : "Cuestionarios",
     "label.password"            : "Contraseña",

@@ -4,6 +4,17 @@
             <option value="">{{ 'label.select_course' | translate }}</option>
         </select>
     </div>
+    <div class="form-group">
+        <select class="form-control" ng-model="order">
+            <option value="name">{{ 'label.select_order' | translate }}</option>
+            <option value="-stats.loginsCurrent">{{ 'label.order_logins' | translate }}</option>
+            <option value="-stats.coursesCurrent">{{ 'label.order_courses' | translate }}</option>
+            <option value="-stats.assignmentsCurrent">{{ 'label.order_assignments' | translate }}</option>
+            <option value="-stats.discussionsCurrent">{{ 'label.order_discussions' | translate }}</option>
+            <option value="-stats.questionariesCurrent">{{ 'label.order_questionaries' | translate }}</option>
+            <option value="-stats.gradesCurrent">{{ 'label.order_grades' | translate }}</option>
+        </select>
+    </div>
 </form>
 <table class="table table-hover">
     <thead>
@@ -18,7 +29,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="student in students">
+        <tr ng-repeat="student in students | orderBy:order">
             <td><a ui-sref="users.details({ id : student._id })">{{ student.name }}</a></td>
             <td class="text-center">
                 {{ student.stats.loginsCurrent | number }}
