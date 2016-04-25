@@ -3,6 +3,7 @@
 define( function () {
     return function ( $scope, Courses, Users, Stats ) {
         $scope.filters  = {};
+        $scope.order    = 'name';
         $scope.page     = 1;
         $scope.per_page = 10;
         $scope.query    = function () {
