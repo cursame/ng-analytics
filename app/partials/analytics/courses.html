@@ -17,6 +17,7 @@
 <table class="table table-hover">
     <thead>
         <tr>
+            <th>#</th>
             <th>{{ 'header.course' | translate }}</th>
             <th width="25%" class="text-center">{{ 'header.professor' | translate }}</th>
             <th width="12%" class="text-center">{{ 'header.students' | translate }}</th>
@@ -28,6 +29,7 @@
     </thead>
     <tbody>
         <tr ng-repeat="course in courses | orderBy:order ">
+            <td>{{ ( $index + 1 ) | number }}</td>
             <td>{{ course.name }}</td>
             <td class="text-center"><a ui-sref="users.details({ id : course.teacher._id })">{{ course.teacher.name }}</a></td>
             <td class="text-center">{{ course.students.length | number }}</td>
@@ -58,6 +60,3 @@
         </tr>
     </tbody>
 </table>
-<p class="text-center">
-    <uib-pagination max-size="10" boundary-links="true" boundary-link-numbers="true" rotate="true" total-items="total" items-per-page="per_page" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-model="page" ng-change="query()"></uib-pagination>
-</p>
