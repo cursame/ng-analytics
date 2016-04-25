@@ -4,6 +4,7 @@ define( function () {
     return function ( $scope, Users, Stats, Courses ) {
         var _id         = null;
 
+        $scope.order    = 'name';
         $scope.page     = 1;
         $scope.per_page = 10;
         $scope.query    = function () {
