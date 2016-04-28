@@ -75,6 +75,7 @@ module.exports  = function ( grunt ) {
                         'resources/{,*/}*.json',
                         'img/{,*/}*.{webp}',
                         'css/{,*/}*.css',
+                        'js/crypto.js',
                         'data/{,*/}*.*',
                         'CNAME'
                     ]
@@ -88,6 +89,14 @@ module.exports  = function ( grunt ) {
                     expand  : true,
                     cwd     : '.',
                     src     : 'bower_components/requirejs/require.js',
+                    dest    : '<%= config.dist %>'
+                }, {
+                    expand  : true,
+                    cwd     : '.',
+                    src     : [
+                        'bower_components/angular-i18n/angular-locale_en-us.js',
+                        'bower_components/angular-i18n/angular-locale_es-mx.js'
+                    ],
                     dest    : '<%= config.dist %>'
                 }]
             }
@@ -129,6 +138,7 @@ module.exports  = function ( grunt ) {
         filerev                 : {
             dist    : {
                 src : [
+                    '<%= config.dist %>/js/crypto.js',
                     '<%= config.dist %>/js/vendor.js',
                     '<%= config.dist %>/css/{,*/}*.css',
                     '<%= config.dist %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -286,7 +296,7 @@ module.exports  = function ( grunt ) {
                     html: {
                         steps   : {
                             js  : ['concat', 'uglify'],
-                            css : ['cssmin']
+                            css : ['concat', 'cssmin']
                         },
                         post: {}
                     }
@@ -344,6 +354,7 @@ module.exports  = function ( grunt ) {
         'requirejs',
         'copy:dist',
         'cdnify',
+        'cssmin',
         'uglify',
         'filerev',
         'usemin',
