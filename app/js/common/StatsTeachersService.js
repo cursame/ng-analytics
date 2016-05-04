@@ -41,7 +41,7 @@ define( function () {
             var that            = this;
 
             Assignments.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -58,9 +58,10 @@ define( function () {
                     {
                         teacher     : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.assignmentsCurrent   = Assignments.getTotal();
+                that._data.assignmentsCurrent   = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
             Assignments.query({
@@ -81,9 +82,10 @@ define( function () {
                     {
                         teacher     : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.assignmentsLast      = Assignments.getTotal();
+                that._data.assignmentsLast      = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
         };
@@ -92,7 +94,7 @@ define( function () {
             var that            = this;
 
             Comments.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -109,13 +111,14 @@ define( function () {
                     {
                         teacher     : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.commentsCurrent      = Comments.getTotal();
+                that._data.commentsCurrent      = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
             Comments.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -132,9 +135,10 @@ define( function () {
                     {
                         teacher     : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.commentsLast         = Comments.getTotal();
+                that._data.commentsLast         = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
         };
@@ -178,7 +182,7 @@ define( function () {
             var that            = this;
 
             Discussions.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -195,13 +199,14 @@ define( function () {
                     {
                         teacher     : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.discussionsCurrent   = Discussions.getTotal();
+                that._data.discussionsCurrent   = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
             Discussions.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -218,9 +223,10 @@ define( function () {
                     {
                         teacher     : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.discussionsLast      = Discussions.getTotal();
+                that._data.discussionsLast      = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
         };
@@ -229,7 +235,7 @@ define( function () {
             var that            = this;
 
             Files.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -246,13 +252,14 @@ define( function () {
                     {
                         teacher     : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.filesCurrent         = Files.getTotal();
+                that._data.filesCurrent         = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
             Files.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -269,9 +276,10 @@ define( function () {
                     {
                         teacher     : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.filesLast            = Files.getTotal();
+                that._data.filesLast            = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
         };
@@ -325,7 +333,7 @@ define( function () {
             var that            = this;
 
             Questionaries.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -342,13 +350,14 @@ define( function () {
                     {
                         teacher     : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.questionariesCurrent = Questionaries.getTotal();
+                that._data.questionariesCurrent = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
             Questionaries.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -365,9 +374,10 @@ define( function () {
                     {
                         teacher     : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.questionariesLast    = Questionaries.getTotal();
+                that._data.questionariesLast    = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
         };
