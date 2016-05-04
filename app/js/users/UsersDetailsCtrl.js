@@ -36,7 +36,7 @@ define( function () {
                         });
                     };
 
-                    $scope.stats    = StatsStudents.getStats( $scope.user._id );
+                    $scope.stats    = StatsStudents.getStats( $scope.user._id, null, true );
                     break;
             }
 
@@ -46,7 +46,7 @@ define( function () {
         });
         $scope.$watch( 'course', function ( course ) {
             if ( course !== undefined ) {
-                $scope.stats    = StatsStudents.getStats( $scope.user._id, course );
+                $scope.stats    = StatsStudents.getStats( $scope.user._id, course, true );
             }
         });
     };

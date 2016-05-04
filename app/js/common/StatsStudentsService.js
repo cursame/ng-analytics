@@ -2,7 +2,7 @@
 
 define( function () {
     return function ( $q, Courses, Assignments, Discussions, Questionaries, Logins, Grades ) {
-        function StudentsStats ( user, course ) {
+        function StudentsStats ( user, course, details ) {
             this._course    = course;
             this._courses   = [];
             this._data      = {
@@ -24,21 +24,21 @@ define( function () {
                 questionariesTotal  : false
             };
             this._deferred  = $q.defer();
+            this._details   = details;
             this._filters   = [];
             this._response  = {};
             this._user      = user;
         };
 
         StudentsStats.prototype._check                  = function () {
-            var that    = this;
-            if ( this._data.assignmentsCurrent !== false && this._data.assignmentsLast !== false &&
-                 this._data.assignmentsTotal !== false && this._data.assignmentsSolved !== false &&
-                 this._data.coursesCurrent !== false && this._data.coursesLast !== false &&
-                 this._data.discussionsCurrent !== false && this._data.discussionsLast !== false &&
-                 this._data.discussionsTotal !== false && this._data.discussionsSolved !== false &&
-                 this._data.loginsCurrent !== false && this._data.loginsLast !== false &&
-                 this._data.questionariesCurrent !== false && this._data.questionariesLast !== false &&
-                 this._data.questionariesTotal !== false && this._data.questionariesSolved !== false ) {
+            if ( ( this._details && this._data.assignmentsTotal !== false && this._data.assignmentsSolved !== false &&
+                   this._data.discussionsTotal !== false && this._data.discussionsSolved !== false &&
+                   this._data.questionariesTotal !== false && this._data.questionariesSolved !== false 
+                 ) || ( !this._details && this._data.assignmentsCurrent !== false && this._data.assignmentsLast !== false &&
+                   this._data.coursesCurrent !== false && this._data.coursesLast !== false &&
+                   this._data.discussionsCurrent !== false && this._data.discussionsLast !== false &&
+                   this._data.loginsCurrent !== false && this._data.loginsLast !== false &&
+                   this._data.questionariesCurrent !== false && this._data.questionariesLast !== false ) ) {
                 this._deferred.resolve( this._data );
             }
         };
@@ -47,7 +47,7 @@ define( function () {
             var that            = this;
 
             Assignments.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -64,13 +64,14 @@ define( function () {
                     {
                         students    : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.assignmentsCurrent   = Assignments.getTotal();
+                that._data.assignmentsCurrent   = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
             Assignments.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -87,9 +88,10 @@ define( function () {
                     {
                         students    : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.assignmentsLast      = Assignments.getTotal();
+                that._data.assignmentsLast      = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
         };
@@ -187,7 +189,7 @@ define( function () {
             var that            = this;
 
             Discussions.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -204,13 +206,14 @@ define( function () {
                     {
                         students    : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.discussionsCurrent   = Discussions.getTotal();
+                that._data.discussionsCurrent   = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
             Discussions.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -227,9 +230,10 @@ define( function () {
                     {
                         students    : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.discussionsLast      = Discussions.getTotal();
+                that._data.discussionsLast      = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
         };
@@ -390,7 +394,7 @@ define( function () {
             var that            = this;
 
             Questionaries.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -407,13 +411,14 @@ define( function () {
                     {
                         students    : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.questionariesCurrent = Questionaries.getTotal();
+                that._data.questionariesCurrent = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
             Questionaries.query({
-                $and    : [
+                $and        : [
                     {
                         course      : this._course
                     },
@@ -430,9 +435,10 @@ define( function () {
                     {
                         students    : this._user
                     }
-                ]
+                ],
+                aggregate   : 'course_avg'
             }).$promise.then( function ( data ) {
-                that._data.questionariesLast    = Questionaries.getTotal();
+                that._data.questionariesLast    = ( data[0] ) ? data[0].avg : 0;
                 that._check();
             });
         };
@@ -515,15 +521,19 @@ define( function () {
                     });
                 }
 
-                that._getAssignments();
-                that._getAssignmentsSolved();
-                that._getCourses();
-                that._getDiscussions();
-                that._getDiscussionsSolved();
+                if ( that._details ) {
+                    that._getAssignmentsSolved();
+                    that._getDiscussionsSolved();
+                    that._getQuestionariesSolved();
+                } else {
+                    that._getAssignments();
+                    that._getCourses();
+                    that._getDiscussions();
+                    that._getLogins();
+                    that._getQuestionaries();
+                }
+
                 that._getGrades();
-                that._getLogins();
-                that._getQuestionaries();
-                that._getQuestionariesSolved();
             });
 
             this._response.promise      = this._deferred.promise;
@@ -538,8 +548,8 @@ define( function () {
         };
 
         return {
-            getStats            : function ( user, course ) {
-                return new StudentsStats( user, course ).getResponse();
+            getStats            : function ( user, course, details ) {
+                return new StudentsStats( user, course, details ).getResponse();
             }
         };
     };

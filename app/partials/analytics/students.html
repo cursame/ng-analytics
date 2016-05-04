@@ -34,31 +34,31 @@
             <td>{{ ( $index + 1 ) | number }}</td>
             <td><a ui-sref="users.details({ id : student._id })">{{ student.name }}</a></td>
             <td class="text-center">
-                {{ student.stats.loginsCurrent | number }}
+                {{ student.stats.loginsCurrent | number:0 }}
                 <span class="indicator indicator-up" ng-if="student.stats.loginsCurrent > student.stats.loginsLast"></span>
                 <span class="indicator indicator-down" ng-if="student.stats.loginsCurrent < student.stats.loginsLast"></span>
                 <span class="indicator indicator-same" ng-if="student.stats.loginsCurrent == student.stats.loginsLast"></span>
             </td>
             <td class="text-center">
-                {{ student.stats.coursesCurrent | number }}
+                {{ student.stats.coursesCurrent | number:0 }}
                 <span class="indicator indicator-up" ng-if="student.stats.coursesCurrent > student.stats.coursesLast"></span>
                 <span class="indicator indicator-down" ng-if="student.stats.coursesCurrent < student.stats.coursesLast"></span>
                 <span class="indicator indicator-same" ng-if="student.stats.coursesCurrent == student.stats.coursesLast"></span>
             </td>
             <td class="text-center">
-                {{ student.stats.assignmentsCurrent | number }}
+                {{ student.stats.assignmentsCurrent | number:0 }}
                 <span class="indicator indicator-up" ng-if="student.stats.assignmentsCurrent > student.stats.assignmentsLast"></span>
                 <span class="indicator indicator-down" ng-if="student.stats.assignmentsCurrent < student.stats.assignmentsLast"></span>
                 <span class="indicator indicator-same" ng-if="student.stats.assignmentsCurrent == student.stats.assignmentsLast"></span>
             </td>
             <td class="text-center">
-                {{ student.stats.discussionsCurrent | number }}
+                {{ student.stats.discussionsCurrent | number:0 }}
                 <span class="indicator indicator-up" ng-if="student.stats.discussionsCurrent > student.stats.discussionsLast"></span>
                 <span class="indicator indicator-down" ng-if="student.stats.discussionsCurrent < student.stats.discussionsLast"></span>
                 <span class="indicator indicator-same" ng-if="student.stats.discussionsCurrent == student.stats.discussionsLast"></span>
             </td>
             <td class="text-center">
-                {{ student.stats.questionariesCurrent | number }}
+                {{ student.stats.questionariesCurrent | number:0 }}
                 <span class="indicator indicator-up" ng-if="student.stats.questionariesCurrent > student.stats.questionariesLast"></span>
                 <span class="indicator indicator-down" ng-if="student.stats.questionariesCurrent < student.stats.questionariesLast"></span>
                 <span class="indicator indicator-same" ng-if="student.stats.questionariesCurrent == student.stats.questionariesLast"></span>

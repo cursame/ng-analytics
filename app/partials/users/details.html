@@ -13,7 +13,7 @@
     <div class="col-md-8">
         <logins-chart user="user"></logins-chart>
         <div class="row">
-            <div class="col-md-12" ng-show="user.type == 1">
+            <div class="col-md-12" ng-if="user.type == 1">
                 <h2>{{ 'label.last_month_activity' | translate }}</h2>
                 <courses-stats user="user"></courses-stats>
             </div>
