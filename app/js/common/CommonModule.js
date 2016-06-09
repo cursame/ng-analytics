@@ -1,7 +1,9 @@
 'use strict';
 
 define( function ( require ) {
+    var AccessDirective         = require( 'common/AccessDirective' );
     var AlertDirective          = require( 'common/AlertDirective' );
+    var AuthService             = require( 'common/AuthService' );
     var BaseService             = require( 'common/BaseService' );
     var CommonConfig            = require( 'common/CommonConfig' );
     var CommonRun               = require( 'common/CommonRun' );
@@ -20,7 +22,11 @@ define( function ( require ) {
 
     CommonModule.directive( 'alert', [ '$rootScope', '$timeout', 'events', AlertDirective ] );
 
+    CommonModule.directive( 'userAccess', [ 'AuthService', AccessDirective ] );
+
     CommonModule.factory( 'BaseService', [ '$rootScope', '$resource', 'config', 'events', BaseService ] );
+
+    CommonModule.factory( 'AuthService', [ 'SessionsService', AuthService ] );
 
     CommonModule.factory( 'SignService', [ 'config', SignService ] );
 
