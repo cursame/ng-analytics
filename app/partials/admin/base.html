@@ -1,0 +1,10 @@
+<div id="subheader">
+    <ul>
+        <li ng-class="{active:$state.includes('administration.users')}"><a ui-sref="administration.users">{{ 'menu.users' | translate }}</a></li>
+    </ul>
+</div>
+<div class="row">
+    <div class="col-lg-11 col-md-11">
+        <div id="content" ui-view="admin-content"></div>
+    </div>
+</div>
