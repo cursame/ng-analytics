@@ -14,7 +14,13 @@ define( function () {
                 }
             })
             .state( 'administration.users', {
-                url         : '/users'
+                url         : '/users',
+                views       : {
+                    'admin-content' : {
+                        templateUrl : 'partials/admin/users.html',
+                        controller  : 'AdminUsersCtrl'
+                    }
+                }
             });
     };
 });

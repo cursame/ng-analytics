@@ -4,6 +4,7 @@
     "alert.logout_success"      : "Sesión terminada.",
     "alert.user_removed"        : "¡Usuario eliminado éxitosamente!",
 
+    "btn.create"                : "Crear",
     "btn.login"                 : "Iniciar sesión",
     "btn.search"                : "Buscar",
 
@@ -47,10 +48,12 @@
     "header.files"              : "Archivos",
     "header.grades"             : "Calificaciones",
     "header.logins"             : "Accesos",
+    "header.network"            : "Red",
     "header.professor"          : "Profesor",
+    "header.questionaries"      : "Cuestionarios",
     "header.student"            : "Alumno",
     "header.students"           : "Alumnos",
-    "header.questionaries"      : "Cuestionarios",
+    "header.user"               : "Usuario",
 
     "label.activity"            : "Actividad",
     "label.activity.COMMENT"    : "Comentario",

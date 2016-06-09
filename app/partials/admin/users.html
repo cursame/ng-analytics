@@ -1,0 +1,32 @@
+<form class="form-inline">
+    <a ui-sref="administration.create" class="btn btn-primary">{{ 'btn.create' | translate }}</a>
+</form>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>{{ 'header.user' | translate }}</th>
+            <th width="25%" class="text-center">{{ 'header.network' | translate }}</th>
+            <th width="25%" class="text-center">{{ 'header.email' | translate }}</th>
+            <th width="25%" class="text-center">{{ 'header.action' | translate }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user in users">
+            <td><a ui-sref="users.details({ id : user._id })"><img class="avatar" ng-src="{{ user.avatar }}">{{ user.name }}</a></td>
+            <td class="text-center">{{ user.network.name }}</td>
+            <td class="text-center">{{ user.email }}</td>
+            <td class="text-center">
+                <span class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i></button>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="users.details({ id : user._id })">{{ 'menu.details' | translate }}</a></li>
+                        <li><a ui-sref="users.remove({ id : user._id })">{{ 'menu.remove' | translate }}</a></li>
+                    </ul>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="text-center">
+    <uib-pagination max-size="10" boundary-links="true" boundary-link-numbers="true" rotate="true" total-items="total" items-per-page="per_page" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-model="page" ng-change="query()"></uib-pagination>
+</p>

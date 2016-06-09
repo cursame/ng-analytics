@@ -4,6 +4,7 @@
     "alert.logout_success"      : "Logged out successfully.",
     "alert.user_removed"        : "User removed successfully!",
 
+    "btn.create"                : "Create",
     "btn.login"                 : "Log In",
     "btn.search"                : "Search",
 
@@ -47,10 +48,12 @@
     "header.files"              : "Files",
     "header.grades"             : "Grades",
     "header.logins"             : "Logins",
+    "header.network"            : "Network",
     "header.professor"          : "Professor",
+    "header.questionaries"      : "Questionaries",
     "header.student"            : "Student",
     "header.students"           : "Students",
-    "header.questionaries"      : "Questionaries",
+    "header.user"               : "User",
 
     "label.activity"            : "Activity",
     "label.activity.COMMENT"    : "Comment",
