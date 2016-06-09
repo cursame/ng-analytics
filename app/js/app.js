@@ -15,6 +15,7 @@ define( function ( require ) {
     require( 'files/FilesModule' );
     require( 'grades/GradesModule' );
     require( 'logins/LoginsModule' );
+    require( 'networks/NetworksModule' );
     require( 'questionaries/QuestionariesModule' );
     require( 'sessions/SessionsModule' );
     require( 'users/UsersModule' );
@@ -41,6 +42,7 @@ define( function ( require ) {
             'FilesModule',
             'GradesModule',
             'LoginsModule',
+            'NetworksModule',
             'QuestionariesModule',
             'SessionsModule',
             'UsersModule'
