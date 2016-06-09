@@ -118,7 +118,6 @@ define( function () {
                         $or         : this._courses
                     }
                 ],
-                $or         : this._courses,
                 per_page    : 1
             }).$promise.then( function ( data ) {
                 that._data.assignmentsTotal     = Assignments.getTotal();
@@ -260,7 +259,6 @@ define( function () {
                         $or         : this._courses
                     }
                 ],
-                $or         : this._courses,
                 per_page    : 1
             }).$promise.then( function ( data ) {
                 that._data.discussionsTotal     = Discussions.getTotal();
@@ -465,7 +463,6 @@ define( function () {
                         $or         : this._courses
                     }
                 ],
-                $or         : this._courses,
                 per_page    : 1
             }).$promise.then( function ( data ) {
                 that._data.questionariesTotal   = Questionaries.getTotal();
