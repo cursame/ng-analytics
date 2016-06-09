@@ -90,6 +90,7 @@
     "label.type_student"        : "Students",
     "label.type_teacher"        : "Teachers",
 
+    "menu.administration"       : "Administration",
     "menu.administrators"       : "Admins",
     "menu.analytics"            : "Analytics",
     "menu.courses_details"      : "Courses Details",
