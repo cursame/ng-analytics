@@ -22,6 +22,15 @@ define( function () {
                     }
                 }
             })
+            .state( 'administration.edit', {
+                url         : '/edit/:id',
+                views       : {
+                    'admin-content' : {
+                        templateUrl : 'partials/admin/create.html',
+                        controller  : 'AdminEditCtrl'
+                    }
+                }
+            })
             .state( 'administration.users', {
                 url         : '/users',
                 views       : {

@@ -104,6 +104,7 @@
     "menu.analytics"            : "Analytics",
     "menu.courses_details"      : "Courses Details",
     "menu.details"              : "Details",
+    "menu.edit"                 : "Edit",
     "menu.general"              : "General",
     "menu.logout"               : "Logout",
     "menu.professors"           : "Professors",

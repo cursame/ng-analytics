@@ -12,14 +12,14 @@
     </thead>
     <tbody>
         <tr ng-repeat="user in users">
-            <td><a ui-sref="users.details({ id : user._id })"><img class="avatar" ng-src="{{ user.avatar }}">{{ user.name }}</a></td>
+            <td><a ui-sref="administration.edit({ id : user._id })"><img class="avatar" ng-src="{{ user.avatar }}">{{ user.name }}</a></td>
             <td class="text-center">{{ user.network.name }}</td>
             <td class="text-center">{{ user.email }}</td>
             <td class="text-center">
                 <span class="dropdown">
                     <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i></button>
                     <ul class="dropdown-menu">
-                        <li><a ui-sref="users.details({ id : user._id })">{{ 'menu.details' | translate }}</a></li>
+                        <li><a ui-sref="administration.edit({ id : user._id })">{{ 'menu.edit' | translate }}</a></li>
                         <li><a ui-sref="users.remove({ id : user._id })">{{ 'menu.remove' | translate }}</a></li>
                     </ul>
                 </span>

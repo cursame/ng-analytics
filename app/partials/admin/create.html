@@ -11,7 +11,7 @@
             </div>
             <div class="form-group">
                 <label for="network">{{ 'label.network' | translate }}</label>
-                <select name="network" class="form-control" ng-model="user.network" ng-options="network._id as network.name for network in networks track by network._id">
+                <select name="network" class="form-control" ng-model="user.network" ng-options="network._id as network.name for network in networks">
                     <option value="">{{ 'label.select_network' | translate }}</option>
                 </select>
             </div>
