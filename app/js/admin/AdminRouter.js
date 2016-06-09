@@ -13,6 +13,15 @@ define( function () {
                     }
                 }
             })
+            .state( 'administration.create', {
+                url         : '/create',
+                views       : {
+                    'admin-content' : {
+                        templateUrl : 'partials/admin/create.html',
+                        controller  : 'AdminCreateCtrl'
+                    }
+                }
+            })
             .state( 'administration.users', {
                 url         : '/users',
                 views       : {
